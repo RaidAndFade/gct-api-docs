@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Miscellaneous - GoCodeIt API</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Miscellaneous";
+    var mkdocs_page_input_path = "generic/miscellaneous.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> GoCodeIt API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api Docs</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../authentication/">Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ratelimits/">RateLimits</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../javadoc/">Javadoc</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../wowdb/">WoWDB</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Miscellaneous</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#hash-to-md5">Hash to MD5</a></li>
+    
+
+    <li class="toctree-l3"><a href="#look-for-md5">Look for MD5</a></li>
+    
+
+    <li class="toctree-l3"><a href="#conversion-api">Conversion API</a></li>
+    
+
+    <li class="toctree-l3"><a href="#execute-code">Execute code</a></li>
+    
+
+    <li class="toctree-l3"><a href="#ip-information">Ip Information</a></li>
+    
+
+    <li class="toctree-l3"><a href="#lookandsay">Lookandsay</a></li>
+    
+
+    <li class="toctree-l3"><a href="#fibonacci">Fibonacci</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">GoCodeIt API</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Api Docs &raquo;</li>
+        
+      
+    
+    <li>Miscellaneous</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Admittedly most of these are quite useless and were made for fun.</p>
+<h3 id="hash-to-md5">Hash to MD5</h3>
+<p><strong>URL</strong>
+<code>GET /md5/hash/{$0}/...</code></p>
+<blockquote>
+<p>Hash a given string <code>{$0}</code> with md5</p>
+<p>Hash multiple strings by adding more parameters to the url.</p>
+</blockquote>
+<p>Example : </p>
+<p>Input : <code>/md5/hash/1/2/3</code></p>
+<p>Output : <code>{"1":"c4ca4238a0b923820dcc509a6f75849b","2":"c81e728d9d4c2f636f067f89cc14862c","3":"eccbc87e4b5ce2fe28308fd9f2a7baf3"}</code></p>
+<h3 id="look-for-md5">Look for MD5</h3>
+<p><strong>URL</strong>
+<code>GET /md5/str/{$0}/...</code></p>
+<blockquote>
+<p>Look for the original string of <code>{$0}</code> in the rainbow table.</p>
+<p>Search for multiple hashes by adding more parameters to the url.</p>
+<p>Returns either appropriate string, or <code>-1</code> if not found.d</p>
+</blockquote>
+<p>Example :</p>
+<p>Input : <code>/md5/str/c4ca4238a0b923820dcc509a6f75849b/c4ca4238a0b923820dcc509a6f75849d</code></p>
+<p>Output : <code>{"c4ca4238a0b923820dcc509a6f75849b":"1","c4ca4238a0b923820dcc509a6f75849d":-1}</code></p>
+<h2 id="conversion-api">Conversion API</h2>
+<p><strong>URL</strong> 
+<code>GET /convert/{$0}/...</code></p>
+<blockquote>
+<p>Convert the given string <code>{$0}</code> to it's Hex, Oct, Binary, and Decimal equivalents</p>
+<p>Also return letter frequency and list.</p>
+<p>Convert multiple strings by appending to url.</p>
+</blockquote>
+<p>Example : </p>
+<p>Input : <code>/convert/hi</code></p>
+<p>Output : <code>{"hi":{"Letters":{"h":{"binary":"1101000","hexadecimal":"68","octadecimal":"150","decimal":"104","ascii":"h"},"i":{"binary":"1101001","hexadecimal":"69","octadecimal":"151","decimal":"105","ascii":"i"}},"lettercount":{"h":1,"i":1},"binary":"1101000 1101001 ","hexadecimal":"68 69 ","octadecimal":"150 151 ","decimal":"104 105 ","ascii":"h i "}}</code></p>
+<h2 id="execute-code">Execute code</h2>
+<p><strong>URL</strong> <code>POST /exec/{lang?}</code></p>
+<p><strong><strong>Required Account Permissions:</strong> EXECUTE</strong></p>
+<blockquote>
+<p>Execute a given code snippet in the language specified. </p>
+</blockquote>
+<p>POST ARGUMENTS (not required if <code>lang</code> supplied):</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>String</code> code</td>
+<td>The code that is being executed.</td>
+</tr>
+<tr>
+<td><code>String</code> lang</td>
+<td>The language that the given code is in. An error will be thrown if the language is unsupported.</td>
+</tr>
+<tr>
+<td><code>String</code> input</td>
+<td>A string that will be sent to STDIN</td>
+</tr>
+</tbody>
+</table>
+<p>Output format: </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Int</code> status</td>
+<td>The return status of the execution daemon.</td>
+</tr>
+<tr>
+<td><code>String</code> res</td>
+<td>The text result of the code snippet.</td>
+</tr>
+<tr>
+<td><code>Int</code> comp</td>
+<td>Duration of time taken to run code in milliseconds.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ip-information">Ip Information</h2>
+<p><strong>URL</strong> <code>GET /ip/{ip}</code></p>
+<p><strong><strong>Required Account Permissions:</strong> IP</strong></p>
+<blockquote>
+<p>Fetch information about any given ip.</p>
+</blockquote>
+<p>Output Format:</p>
+<p>Output will either be type 1 or type 2.</p>
+<p>Type 1 (Range is special):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>String</code> resp</td>
+<td>String that is sent when something goes wrong or when data can't be provided</td>
+</tr>
+<tr>
+<td><code>String</code> range</td>
+<td>The ip range related to the response</td>
+</tr>
+</tbody>
+</table>
+<p>Type 2 (Range is not special):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>String</code> network</td>
+<td>The ip range related to the response</td>
+</tr>
+<tr>
+<td><code>String</code> asn</td>
+<td>The ASN that provides or owns the IP address</td>
+</tr>
+<tr>
+<td><code>Array&lt;String&gt;</code></td>
+<td>An array of flags related to the IP</td>
+</tr>
+<tr>
+<td><code>Location</code> location</td>
+<td>The approximate location of the IP</td>
+</tr>
+</tbody>
+</table>
+<p><code>Location</code> object:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>String</code> latitude</td>
+<td>Approximate latitude</td>
+</tr>
+<tr>
+<td><code>String</code> longitude</td>
+<td>Approximate longitude</td>
+</tr>
+<tr>
+<td><code>String</code> postal_code</td>
+<td>Approximate postal code</td>
+</tr>
+<tr>
+<td><code>Object</code> continent</td>
+<td>Continent of IP {<code>code</code>:<code>String code</code>,<code>name</code>:<code>String name</code>}</td>
+</tr>
+<tr>
+<td><code>Object</code> country</td>
+<td>Country of IP {<code>code</code>:<code>String code</code>,<code>name</code>:<code>String name</code>}</td>
+</tr>
+<tr>
+<td><code>Object</code> region</td>
+<td>Region of IP {<code>code</code>:<code>String code</code>,<code>name</code>:<code>String name</code>}</td>
+</tr>
+<tr>
+<td><code>Object</code> subregion</td>
+<td>Either empty object or {<code>code</code>:<code>String code</code>,<code>name</code>:<code>String name</code>}</td>
+</tr>
+<tr>
+<td><code>String</code> city</td>
+<td>Approximate city of IP</td>
+</tr>
+<tr>
+<td><code>String</code> time_zone</td>
+<td>Time zone of IP</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lookandsay">Lookandsay</h2>
+<p><strong>URL</strong> <code>GET /lookandsay/{n}</code></p>
+<blockquote>
+<p>Returns a list of all <code>lookandsay</code> elements up to the <code>n</code>th element... </p>
+<p>where <code>n</code> &lt;= 8 when not authenticated</p>
+<p>or 12 if authenticated</p>
+<p>or 24 if your account is flagged UPGRADED.</p>
+</blockquote>
+<p>Example : </p>
+<p>Input : <code>/lookandsay/4</code></p>
+<p>Output : <code>["1","11","21","1211"]</code></p>
+<h2 id="fibonacci">Fibonacci</h2>
+<p><strong>URL</strong> <code>GET /fibonacci/{n}</code></p>
+<blockquote>
+<p>Returns a list of all <code>fibonacci</code> elements up to the <code>n</code>th element...</p>
+<p>where <code>n</code> &lt;= 250 when not authenticated</p>
+<p>or 500 if authenticated</p>
+<p>or 2500 if your account is flagged UPGRADED.</p>
+</blockquote>
+<p>Example : </p>
+<p>Input : <code>/fibonacci/4</code></p>
+<p>Output : <code>[0,1,1,2]</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../wowdb/" class="btn btn-neutral" title="WoWDB"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../wowdb/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

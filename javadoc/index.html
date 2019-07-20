@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Javadoc - GoCodeIt API</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Javadoc";
+    var mkdocs_page_input_path = "javadoc.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> GoCodeIt API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api Docs</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../generic/authentication/">Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../generic/ratelimits/">RateLimits</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Javadoc</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#javadoc">Javadoc</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#datatypes">Datatypes</a></li>
+        
+            <li><a class="toctree-l4" href="#endpoints">Endpoints</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../wowdb/">WoWDB</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../generic/miscellaneous/">Miscellaneous</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">GoCodeIt API</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Api Docs &raquo;</li>
+        
+      
+    
+    <li>Javadoc</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="javadoc">Javadoc</h1>
+<p>These APIs fetch data from the JAVA documentation based on the given path and return the appropriate data. Below you can find structs as well as endpoints.</p>
+<hr />
+<hr />
+<h2 id="datatypes">Datatypes</h2>
+<hr />
+<h3 id="javadoc-type">Javadoc Type</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>String</code> qualifiedName</td>
+<td>the qualified path of the type</td>
+</tr>
+<tr>
+<td><code>String</code> name</td>
+<td>the qualified name of the type</td>
+</tr>
+<tr>
+<td><code>String</code> type</td>
+<td>the type string</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="javadoc-class">Javadoc Class</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#javadoc-method"><code>Array&lt;Method&gt;</code></a>  constructors</td>
+<td>The constructors of the class</td>
+</tr>
+<tr>
+<td><a href="#javadoc-type"><code>Array&lt;Type&gt;</code></a> interfaces</td>
+<td>The interfaces that the class includes</td>
+</tr>
+<tr>
+<td><code>String</code> qualifiedName</td>
+<td>The qualified class path</td>
+</tr>
+<tr>
+<td><code>Object</code> superClass</td>
+<td>Information about the superclass. Looks like {<code>qualifiedName</code>:<code>String</code>,<code>name</code>:<code>String</code>} or empty object.</td>
+</tr>
+<tr>
+<td><a href="#javadoc-method"><code>Array&lt;Method&gt;</code></a> methods</td>
+<td>The <a href="#javadoc-method">methods</a> that the class has</td>
+</tr>
+<tr>
+<td><code>String</code> typeName</td>
+<td>the type name of the class</td>
+</tr>
+<tr>
+<td><code>String</code> type</td>
+<td>the type of the class, one of "Class", "Interface", or "Enum"</td>
+</tr>
+<tr>
+<td><code>String</code> name</td>
+<td>the qualified class name</td>
+</tr>
+<tr>
+<td><a href="#javadoc-annotation"><code>Array&lt;Annotation&gt;</code></a> annotations</td>
+<td>The class's <a href="#javadoc-annotation">annotations</a></td>
+</tr>
+<tr>
+<td><code>String</code> modifiers</td>
+<td>The class's modifiers</td>
+</tr>
+<tr>
+<td><a href="#javadoc-field"><code>Array&lt;Field&gt;</code></a> fields</td>
+<td>The class's <a href="#javadoc-field">fields</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="javadoc-method">Javadoc Method</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>String</code> qualifiedName</td>
+<td>The qualified method path</td>
+</tr>
+<tr>
+<td><code>String</code> name</td>
+<td>the qualified method name</td>
+</tr>
+<tr>
+<td><code>String</code> docString</td>
+<td>the method's documentation string</td>
+</tr>
+<tr>
+<td><a href="#javadoc-annotation"><code>Array&lt;Annotation&gt;</code></a> annotations</td>
+<td>The method's <a href="#javadoc-annotation">annotations</a></td>
+</tr>
+<tr>
+<td><code>String</code> modifiers</td>
+<td>The method's modifiers</td>
+</tr>
+<tr>
+<td><a href="#javadoc-type"><code>Array&lt;Type&gt;</code></a> exceptions</td>
+<td>The methods's <a href="#javadoc-type">exceptions</a></td>
+</tr>
+<tr>
+<td><a href="#javadoc-parameter"><code>Array&lt;Parameter&gt;</code></a> parameters</td>
+<td>The methods's <a href="#javadoc-parameter">parameters</a></td>
+</tr>
+<tr>
+<td><em>Optional</em> <a href="#javadoc-type"><code>Type</code></a> returntype</td>
+<td>the <a href="#javadoc-type">type</a> of the method's return value</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="javadoc-field">Javadoc Field</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>String</code> qualifiedName</td>
+<td>The qualified field path</td>
+</tr>
+<tr>
+<td><code>String</code> name</td>
+<td>the qualified field name</td>
+</tr>
+<tr>
+<td><code>String</code> docString</td>
+<td>the field's documentation string</td>
+</tr>
+<tr>
+<td><a href="#javadoc-annotation"><code>Array&lt;Annotation&gt;</code></a> annotations</td>
+<td>The field's <a href="#javadoc-annotation">annotations</a></td>
+</tr>
+<tr>
+<td><code>String</code> modifiers</td>
+<td>The field's modifiers</td>
+</tr>
+<tr>
+<td><a href="#javadoc-type"><code>Type</code></a> fieldType</td>
+<td>the <a href="#javadoc-type">type</a> of the field.</td>
+</tr>
+<tr>
+<td><a href="#javadoc-class"><code>Class</code></a> class</td>
+<td>the <a href="#javadoc-class">class</a> of the field.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="javadoc-parameter">Javadoc Parameter</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>String</code> name</td>
+<td>The parameter name</td>
+</tr>
+<tr>
+<td><a href="#javadoc-type"><code>Type</code></a> type</td>
+<td>the <a href="#javadoc-type">type</a> of the parameter</td>
+</tr>
+<tr>
+<td><a href="#javadoc-annotation"><code>Array&lt;Annotation&gt;</code></a> annotations</td>
+<td>The method's <a href="#javadoc-annotation">annotations</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="javadoc-annotation">Javadoc Annotation</h3>
+<p>I've yet to see one of these...</p>
+<hr />
+<hr />
+<h2 id="endpoints">Endpoints</h2>
+<h3 id="get-any">Get Any</h3>
+<p><strong>URL</strong> <code>GET /javadoc/any/{path}</code></p>
+<blockquote>
+<p>Gets the javadoc of any given path.</p>
+</blockquote>
+<p>Output : one of [<a href="#javadoc-class"><code>Class</code></a>,<a href="#javadoc-method"><code>Array&lt;Method&gt;</code></a>,<a href="#javadoc-field"><code>Field</code></a>]</p>
+<p>With extra property <code>type</code> which is one of [<code>class</code>,<code>methods</code>.<code>field</code>] respectively.</p>
+<h3 id="get-class">Get Class</h3>
+<p><strong>URL</strong> <code>GET /javadoc/class/{classPath}</code></p>
+<blockquote>
+<p>Gets the javadoc of any given class based on class path.</p>
+</blockquote>
+<p>Output : <a href="#javadoc-class"><code>Class</code></a></p>
+<p>With extra property <code>type</code> which is <code>class</code>.</p>
+<h3 id="get-methods">Get Methods</h3>
+<p><strong>URL</strong> <code>GET /javadoc/methods/{methodPath}</code></p>
+<blockquote>
+<p>Gets the javadoc of all methods with the given method path.</p>
+</blockquote>
+<p>Output : <a href="#javadoc-method"><code>Array&lt;Method&gt;</code></a></p>
+<p>With extra property <code>type</code> which is <code>methods</code>.</p>
+<h3 id="get-field">Get Field</h3>
+<p><strong>URL</strong> <code>GET /javadoc/field/{fieldPath}</code></p>
+<blockquote>
+<p>Gets the javadoc of the field with the given field path.</p>
+</blockquote>
+<p>Output : <a href="#javadoc-field"><code>Field</code></a></p>
+<p>With extra property <code>type</code> which is <code>field</code>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../wowdb/" class="btn btn-neutral float-right" title="WoWDB">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../generic/ratelimits/" class="btn btn-neutral" title="RateLimits"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../generic/ratelimits/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../wowdb/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

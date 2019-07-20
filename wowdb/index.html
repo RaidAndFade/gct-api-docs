@@ -1,0 +1,5745 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>WoWDB - GoCodeIt API</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "WoWDB";
+    var mkdocs_page_input_path = "wowdb.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> GoCodeIt API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api Docs</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../generic/authentication/">Authentication</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../generic/ratelimits/">RateLimits</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../javadoc/">Javadoc</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">WoWDB</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#data-structs">Data Structs</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#-major-types">- Major Types</a></li>
+        
+            <li><a class="toctree-l4" href="#-item">-&gt; Item</a></li>
+        
+            <li><a class="toctree-l4" href="#-spell">-&gt; Spell</a></li>
+        
+            <li><a class="toctree-l4" href="#-mount">-&gt; Mount</a></li>
+        
+            <li><a class="toctree-l4" href="#-faction">-&gt; Faction</a></li>
+        
+            <li><a class="toctree-l4" href="#-skill">-&gt; Skill</a></li>
+        
+            <li><a class="toctree-l4" href="#-title">-&gt; Title</a></li>
+        
+            <li><a class="toctree-l4" href="#-achievement">-&gt; Achievement</a></li>
+        
+            <li><a class="toctree-l4" href="#-quest">-&gt; Quest</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#endpoints">Endpoints</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#-get-type-by-id">-&gt; Get type by Id</a></li>
+        
+            <li><a class="toctree-l4" href="#-search-for-type-with-field-data">-&gt; Search for type with field data</a></li>
+        
+            <li><a class="toctree-l4" href="#-get-icon-of-type-by-id">-&gt; Get icon of type by Id</a></li>
+        
+            <li><a class="toctree-l4" href="#-get-image-of-type-by-id">-&gt; Get image of type by Id</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../generic/miscellaneous/">Miscellaneous</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">GoCodeIt API</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Api Docs &raquo;</li>
+        
+      
+    
+    <li>WoWDB</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="data-structs">Data Structs</h1>
+<p>It was very hard to organize this. Please forgive me for it's ugliness.</p>
+<p>Protip : Don't bother scrolling. Just use the menu and the links.</p>
+<h2 id="-major-types">- Major Types</h2>
+<hr />
+<h2 id="-item">-&gt; Item</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> Id</td>
+<td>The id of the item</td>
+</tr>
+<tr>
+<td><code>Integer</code> FileId</td>
+<td>The id of the resourcefile for the icon</td>
+</tr>
+<tr>
+<td><code>String</code> IconFile</td>
+<td>The relative path of the item's icon</td>
+</tr>
+<tr>
+<td><code>String</code> Desc</td>
+<td>The item's description</td>
+</tr>
+<tr>
+<td><code>Integer</code> Quality</td>
+<td>The item's <a href="#item-qualities">quality</a></td>
+</tr>
+<tr>
+<td><code>Array&lt;Integer&gt;</code> QualityColor</td>
+<td>An RGB representation of the item's quality. [R,G,B]</td>
+</tr>
+<tr>
+<td><code>Integer</code> Bonding</td>
+<td>The bonding style of this item (None, Pickup, Equip, Use, Quest)</td>
+</tr>
+<tr>
+<td><a href="#item-requirements"><code>ItemRequirements</code></a> Required</td>
+<td>The item's requirements</td>
+</tr>
+<tr>
+<td><code>Integer</code> ItemLevel</td>
+<td>The base itemlevel of this item</td>
+</tr>
+<tr>
+<td><a href="#item-type"><code>ItemType</code></a> ItemType</td>
+<td>The type of this item</td>
+</tr>
+<tr>
+<td><a href="#socket-types"><code>Array&lt;SocketType&gt;</code></a> Sockets</td>
+<td>the sockets of this item</td>
+</tr>
+<tr>
+<td><code>Object</code> Pricing</td>
+<td>the price of selling/buying this item in copper (Struct : {<code>Buy</code>:<code>Long</code>,<code>Sell</code>:<code>Long</code>})</td>
+</tr>
+<tr>
+<td><a href="#item-effect"><code>Array&lt;ItemEffect&gt;</code></a> Effects</td>
+<td>The effects of this item.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="-spell">-&gt; Spell</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> Id</td>
+<td>The id of the spell</td>
+</tr>
+<tr>
+<td><code>String</code> Name</td>
+<td>The name of the spell</td>
+</tr>
+<tr>
+<td><code>String</code> UDesc</td>
+<td>The unclean (With variables) description of the spell</td>
+</tr>
+<tr>
+<td><code>Integer</code> MiscID</td>
+<td>The ID of the spell's misc data</td>
+</tr>
+<tr>
+<td><code>Integer</code> DescID</td>
+<td>The ID of the spell's extra description variable calculations</td>
+</tr>
+<tr>
+<td><a href="#spell-misc"><code>SpellMisc</code></a> Misc</td>
+<td>The spell's misc data</td>
+</tr>
+<tr>
+<td><code>String</code> IconFile</td>
+<td>The relative path of the spell's icon</td>
+</tr>
+<tr>
+<td><code>Array&lt;Range&gt;</code> Range</td>
+<td>The two ranges of the spell (Each Range is [<code>Integer Minimum</code>,<code>Integer Maximum</code>] where both ints are ingame yards)</td>
+</tr>
+<tr>
+<td><code>Object</code> CastTime</td>
+<td>The cast times of the spell in milliseconds (Struct : {<code>Base</code>:<code>Integer</code>,<code>Minimum</code>:<code>Integer</code>,<code>Per-Level</code>:<code>Integer</code>})</td>
+</tr>
+<tr>
+<td><code>Integer</code> Duration</td>
+<td>The duration of the spell's effects in milliseconds</td>
+</tr>
+<tr>
+<td><a href="#spell-effect"><code>Array&lt;SpellEffect&gt;</code></a> Effects</td>
+<td>The effects of this spell</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="-mount">-&gt; Mount</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> Id</td>
+<td>The id of the mount</td>
+</tr>
+<tr>
+<td><code>String</code> Name</td>
+<td>The name of the mount</td>
+</tr>
+<tr>
+<td><code>String</code> Desc</td>
+<td>The description of the mount</td>
+</tr>
+<tr>
+<td><code>String</code> Source</td>
+<td>Where to get the mount from</td>
+</tr>
+<tr>
+<td><code>String</code> UncleanSource</td>
+<td>Unclean source.</td>
+</tr>
+<tr>
+<td><code>Integer</code> Spell</td>
+<td>The id of the spell that this mount is summoned by</td>
+</tr>
+<tr>
+<td><code>String</code> IconFile</td>
+<td>The relative path of this mount's icon</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="-faction">-&gt; Faction</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> Id</td>
+<td>The id of this faction</td>
+</tr>
+<tr>
+<td><code>String</code> Name</td>
+<td>The name of this faction</td>
+</tr>
+<tr>
+<td><code>String</code> Desc</td>
+<td>The description of this faction</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="-skill">-&gt; Skill</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> Id</td>
+<td>The id of this skill</td>
+</tr>
+<tr>
+<td><code>String</code> Name</td>
+<td>The name of this skill</td>
+</tr>
+<tr>
+<td><code>String</code> OriginalName</td>
+<td>The base name of this skill</td>
+</tr>
+<tr>
+<td><code>String</code> Desc</td>
+<td>The description of this skill</td>
+</tr>
+<tr>
+<td><code>String</code> OriginalDesc</td>
+<td>The base description of this skill</td>
+</tr>
+<tr>
+<td><code>Integer</code> IconFileID</td>
+<td>The ID of this skill's icon</td>
+</tr>
+<tr>
+<td><code>String</code> IconFile</td>
+<td>The relative path to this skill's icon</td>
+</tr>
+<tr>
+<td><code>Integer</code> CategoryId</td>
+<td>This id of skill's category <a href="#skill-categories">(List of all categories)</a></td>
+</tr>
+<tr>
+<td><code>String</code> Category</td>
+<td>This skill's category</td>
+</tr>
+<tr>
+<td><a href="#skill-ability"><code>Array&lt;SkillAbility&gt;</code></a> Abilities</td>
+<td>This skill's possible abilities (if this skill is a profession, these are possible recipies)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="-title">-&gt; Title</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> Id</td>
+<td>The id of this title</td>
+</tr>
+<tr>
+<td><code>Object</code> Name</td>
+<td>The en_us locale'd strings for male and female</td>
+</tr>
+<tr>
+<td><code>String</code> Name[Male]</td>
+<td>The male representation of this title (With %s as name placeholder)</td>
+</tr>
+<tr>
+<td><code>String</code> Name[Female]</td>
+<td>The female representation of this title (With %s as name placeholder)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="-achievement">-&gt; Achievement</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> Id</td>
+<td>The Id of this achievement</td>
+</tr>
+<tr>
+<td><code>String</code> Name</td>
+<td>The name of this achievement</td>
+</tr>
+<tr>
+<td><code>String</code> Desc</td>
+<td>The description of this achievement</td>
+</tr>
+<tr>
+<td><code>String</code> Reward</td>
+<td>The reward of this achievement</td>
+</tr>
+<tr>
+<td><code>Integer</code> Points</td>
+<td>The points rewarded from this achievement</td>
+</tr>
+<tr>
+<td><code>String</code> Instance</td>
+<td>The instance this achievement is for/from (or null)</td>
+</tr>
+<tr>
+<td><a href="#-achievement"><code>Achievement</code></a> Parent</td>
+<td>This achievement's parent (or null)</td>
+</tr>
+<tr>
+<td><a href="#achievement-category"><code>AchievementCategory</code></a> Category</td>
+<td>This achievement's category</td>
+</tr>
+<tr>
+<td><code>Integer</code> IconFileID</td>
+<td>The id for this achievement's icon</td>
+</tr>
+<tr>
+<td><code>String</code> IconFile</td>
+<td>The relative path to this achievement's icon</td>
+</tr>
+<tr>
+<td><a href="#criteria-tree"><code>CriteriaTree</code></a> CriteriaTree</td>
+<td>This achievement's criteriatree</td>
+</tr>
+<tr>
+<td><a href="#criteria"><code>Array&lt;Criteria&gt;</code></a> Criteria</td>
+<td>This achievement's criteria</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="-quest">-&gt; Quest</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="item-type">Item Type</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> ClassId</td>
+<td>The ID of the class type</td>
+</tr>
+<tr>
+<td><code>Integer</code> SubClassId</td>
+<td>The ID of the subclass type</td>
+</tr>
+<tr>
+<td><code>String</code> Name</td>
+<td>The type name</td>
+</tr>
+<tr>
+<td><code>String</code> FullName</td>
+<td>The full type name (May be the same as name depending on class)</td>
+</tr>
+<tr>
+<td><code>String</code> Class</td>
+<td>The class</td>
+</tr>
+<tr>
+<td><code>String</code> SubClass</td>
+<td>The subclass</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="item-effect">Item Effect</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>String</code> SpellID</td>
+<td>The spell id of the effect</td>
+</tr>
+<tr>
+<td><code>Integer</code> Cooldown</td>
+<td>The cooldown of the effect in milliseconds (or -1 if no cooldown)</td>
+</tr>
+<tr>
+<td><code>Integer</code> CategoryCooldown</td>
+<td>The cooldown of the effect's category in milliseconds (or -1 if no cooldown)</td>
+</tr>
+<tr>
+<td><code>Integer</code> Charges</td>
+<td>The number of repeats this effect can have (or -1 if unlimited)</td>
+</tr>
+<tr>
+<td><code>Integer</code> Category</td>
+<td>The cateogry ID of this effect</td>
+</tr>
+<tr>
+<td><code>Integer</code> ChrSpecializationID</td>
+<td>The required specialization of this effect</td>
+</tr>
+<tr>
+<td><code>Integer</code> OrderIndex</td>
+<td>The order index of this effect amongst others on the same item</td>
+</tr>
+<tr>
+<td><a href="#effect-triggers"><code>EffectTrigger</code></a> Trigger</td>
+<td>The trigger type of this effect</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="item-requirements">Item Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Array&lt;Integer&gt;</code> Class</td>
+<td>Class ids of classes which are allowed</td>
+</tr>
+<tr>
+<td><code>Integer</code> Spell</td>
+<td>Required Spell's Id</td>
+</tr>
+<tr>
+<td><code>Integer</code> Level</td>
+<td>Required Level</td>
+</tr>
+<tr>
+<td><code>Integer</code> Honor</td>
+<td>Required Honor Rank</td>
+</tr>
+<tr>
+<td><code>Integer</code> City</td>
+<td>Required City Id?? (Unknown)</td>
+</tr>
+<tr>
+<td><code>Object</code> Skill</td>
+<td>Required Skill &amp; Rank (Struct : {<code>Id</code>:<code>Integer</code>,<code>Rank</code>:<code>Integer</code>})</td>
+</tr>
+<tr>
+<td><code>Object</code> Reputation</td>
+<td>Required reputation &amp; rank (Struct : {<code>Id</code>:<code>Integer</code>,<code>Rank</code>:<code>Integer</code>})</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="spell-misc">Spell Misc</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> m_ID</td>
+<td>The ID of this misc data</td>
+</tr>
+<tr>
+<td><code>Long</code> Attributes_1</td>
+<td>Various flags that apply to the spell</td>
+</tr>
+<tr>
+<td><code>Long</code> Attributes_2</td>
+<td>Various flags that apply to the spell</td>
+</tr>
+<tr>
+<td><code>Long</code> Attributes_3</td>
+<td>Various flags that apply to the spell</td>
+</tr>
+<tr>
+<td><code>Long</code> Attributes_4</td>
+<td>Various flags that apply to the spell</td>
+</tr>
+<tr>
+<td><code>Long</code> Attributes_5</td>
+<td>Various flags that apply to the spell</td>
+</tr>
+<tr>
+<td><code>Long</code> Attributes_6</td>
+<td>Various flags that apply to the spell</td>
+</tr>
+<tr>
+<td><code>Long</code> Attributes_7</td>
+<td>Various flags that apply to the spell</td>
+</tr>
+<tr>
+<td><code>Integer</code> Speed</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td><code>Integer</code> MultistrikeSpeedMod</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td><code>Integer</code> CastingTimeIndex</td>
+<td>The index of the casting time of the spell that this is misc for</td>
+</tr>
+<tr>
+<td><code>Integer</code> DurationIndex</td>
+<td>The index of the duration of the spell that this is misc for</td>
+</tr>
+<tr>
+<td><code>Integer</code> RangeIndex</td>
+<td>The index of the range of the spell that this is misc for</td>
+</tr>
+<tr>
+<td><code>Integer</code> SchoolMask</td>
+<td>The school type of the effects of this spell</td>
+</tr>
+<tr>
+<td><code>Integer</code> IconFileDataID</td>
+<td>The ID of this spell's icon</td>
+</tr>
+<tr>
+<td><code>Integer</code> ActiveIconFileDataID</td>
+<td>The ID of this spell's icon when toggled on (or 0 if this spell isn't togglable)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="spell-effect">Spell Effect</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Long</code> maskA</td>
+<td>Various flags that apply to this effect</td>
+</tr>
+<tr>
+<td><code>Long</code> maskB</td>
+<td>Various flags that apply to this effect</td>
+</tr>
+<tr>
+<td><code>Long</code> maskC</td>
+<td>Various flags that apply to this effect</td>
+</tr>
+<tr>
+<td><code>Long</code> maskD</td>
+<td>Various flags that apply to this effect</td>
+</tr>
+<tr>
+<td><code>Integer</code> m_Id</td>
+<td>The ID of this spell effect</td>
+</tr>
+<tr>
+<td><code>Integer</code> effect</td>
+<td>The type of effect that this is <a href="#effect-types">(List of all here)</a></td>
+</tr>
+<tr>
+<td><code>Integer</code> auraId</td>
+<td>The type of aura that this has <a href="#aura-types">(List of all here)</a></td>
+</tr>
+<tr>
+<td><code>Integer</code> basePoints</td>
+<td>The default value of this effect (purpose based on effect type)</td>
+</tr>
+<tr>
+<td><code>Integer</code> effectIndex</td>
+<td>The position of this effect amongst other effects on this spell</td>
+</tr>
+<tr>
+<td><code>Integer</code> miscValue_1</td>
+<td>The first misc value (purpose based on effect type)</td>
+</tr>
+<tr>
+<td><code>Integer</code> miscValue_2</td>
+<td>The second misc value (purpose based on effect type)</td>
+</tr>
+<tr>
+<td><code>Integer</code> auraName</td>
+<td>Unknown purpose</td>
+</tr>
+<tr>
+<td><code>Integer</code> radiusId</td>
+<td>The ID of this effect's radius</td>
+</tr>
+<tr>
+<td><code>Integer</code> target_1</td>
+<td>Allowed Targets (or 0 if all)</td>
+</tr>
+<tr>
+<td><code>Integer</code> target_2</td>
+<td>Allowed Targets? (or 0 if all)</td>
+</tr>
+<tr>
+<td><code>Integer</code> unknown_1</td>
+<td>Unknown (Appears in some effect types)</td>
+</tr>
+<tr>
+<td><code>Integer</code> unknown_2</td>
+<td>Unknown (Appears in some effect types)</td>
+</tr>
+<tr>
+<td><code>Integer</code> unknown_3</td>
+<td>Unknown (Appears in some effect types)</td>
+</tr>
+<tr>
+<td><code>Float</code> unknown_4</td>
+<td>Unknown (Appears in some effect types)</td>
+</tr>
+<tr>
+<td><code>Integer</code> effectAmplitude</td>
+<td>The amplitude of the effect's baseValue</td>
+</tr>
+<tr>
+<td><code>Float</code> unknown_5</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td><code>Float</code> chainAmplitude</td>
+<td>The decrease in amplitude per jump (used for spells like chain-lightning and chain-heal)</td>
+</tr>
+<tr>
+<td><code>Integer</code> unknown_6</td>
+<td>Unknown (Appears in some effect types)</td>
+</tr>
+<tr>
+<td><code>Integer</code> dieSides</td>
+<td>The number of sides that the RNG of this spell has. (This + baseValue = maxValue)</td>
+</tr>
+<tr>
+<td><code>Integer</code> itemType</td>
+<td>The item that this effect is associated with (purpose based on effect type)</td>
+</tr>
+<tr>
+<td><code>Integer</code> unknown_7</td>
+<td>Unknown (Appears in some effect types)</td>
+</tr>
+<tr>
+<td><code>Float</code> unknown_8</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td><code>Float</code> realPointsPerLevel</td>
+<td>Unknown purpose</td>
+</tr>
+<tr>
+<td><code>Integer</code> triggerSpell</td>
+<td>The spell that this effect is associated with (purpose based on effect)</td>
+</tr>
+<tr>
+<td><code>Float</code> unknown_9</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td><code>Integer</code> unknown_10</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td><code>Float</code> unknown_11</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td><code>Float</code> bonusMultiplier</td>
+<td>Unknown purpose</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="skill-ability">Skill Ability</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> m_ID</td>
+<td>The ID of this ability</td>
+</tr>
+<tr>
+<td><code>Integer</code> SpellID</td>
+<td>The spell that is cast when this ability is used</td>
+</tr>
+<tr>
+<td><code>Integer</code> RaceMask</td>
+<td>This ability's racemask</td>
+</tr>
+<tr>
+<td><code>Integer</code> SupercedesSpell</td>
+<td>The spell that this requires before it can be learned</td>
+</tr>
+<tr>
+<td><code>Integer</code> SkillLine</td>
+<td>The skill that this is an ability for</td>
+</tr>
+<tr>
+<td><code>Integer</code> MinSkillLineRank</td>
+<td>The rank that is required in the skill before this can be learned/used</td>
+</tr>
+<tr>
+<td><code>Integer</code> TrivialSkillRankHigh</td>
+<td>The rank of skill at which this rewards extra skillups</td>
+</tr>
+<tr>
+<td><code>Integer</code> TrivialSkillRankLow</td>
+<td>The rank of skill at which this no longer rewards skillups</td>
+</tr>
+<tr>
+<td><code>Integer</code> UniqueBit</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td><code>Integer</code> TradeSkillCategoryID</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td><code>Integer</code> AquireMethod</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td><code>Integer</code> NumSkillUps</td>
+<td>The base number of skillups from this ability</td>
+</tr>
+<tr>
+<td><code>Integer</code> Unknown703</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td><code>Integer</code> ClassMask</td>
+<td>This abiity's classmask</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="achievement-category">Achievement Category</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> Id</td>
+<td>The ID of the category</td>
+</tr>
+<tr>
+<td><code>String</code> Name</td>
+<td>The name of the category</td>
+</tr>
+<tr>
+<td><a href="#achievement-category"><code>AchievementCategory</code></a> Parent</td>
+<td>The parent of this category (or null)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="criteria-tree">Criteria Tree</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> Id</td>
+<td>The ID of this tree</td>
+</tr>
+<tr>
+<td><code>String</code> Description</td>
+<td>The description of this tree</td>
+</tr>
+<tr>
+<td><code>Integer</code> Amount</td>
+<td>The amount required by this tree</td>
+</tr>
+<tr>
+<td><a href="#criteria-tree"><code>CriteriaTree</code></a> Parent</td>
+<td>This tree's parent</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="criteria">Criteria</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Integer</code> CriteriaId</td>
+<td>The ID of this criteria</td>
+</tr>
+<tr>
+<td><code>String</code> Description</td>
+<td>The description of this criteria</td>
+</tr>
+<tr>
+<td><code>Integer</code> Quantity</td>
+<td>The amount required by this criteria</td>
+</tr>
+<tr>
+<td><code>Integer</code> AssetId</td>
+<td>The ID of this criteria's asset</td>
+</tr>
+<tr>
+<td><code>Integer</code> Type</td>
+<td>This criteria's type <a href="#criteria-types">(List of known types)</a></td>
+</tr>
+<tr>
+<td><code>Integer</code> Flags</td>
+<td>This criteria's flags</td>
+</tr>
+<tr>
+<td><code>Integer</code> AchievementId</td>
+<td>This criteria's parent achievement</td>
+</tr>
+<tr>
+<td><code>Integer</code> CriteriaIndex</td>
+<td>This criteria's order index</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="skill-categories">Skill Categories</h3>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Attributes</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Weapon Skills</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Class Skills</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Armor</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Secondary Professions</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Languages</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Primary Professions</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Hidden</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="criteria-types">Criteria Types</h3>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Asset</th>
+<th>Extra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Monster Kill</td>
+<td>Creature ID</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Winning PvP Objective</td>
+<td></td>
+<td>Holding all bases/flags</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Weapon Skill</td>
+<td>skill Id?</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Another Achievement</td>
+<td>Achievement ID</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Completing Quests</td>
+<td>Quest ID?</td>
+<td>Global</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Daily Quest Completion Repeatedly</td>
+<td>Quest ID</td>
+<td>Quantity is most likely required days.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Quest Completion in area</td>
+<td>Area ID?</td>
+<td>Quantity is required quest #</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Completing Daily Quests</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>Completing a Quest</td>
+<td>Quest ID</td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Getting spell cast on you</td>
+<td>Spell ID</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>Casting spell</td>
+<td>Spell ID</td>
+<td>Often for crafting</td>
+</tr>
+<tr>
+<td>30</td>
+<td>PvP Objective</td>
+<td></td>
+<td>flags,assaulting,defending</td>
+</tr>
+<tr>
+<td>31</td>
+<td>PvP Kills in BG</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>Winning ranked arena matches in specific arena</td>
+<td>Arena's Map ID?</td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>Owning a specific battle pet?</td>
+<td>Spell ID</td>
+<td>(assumed name, from The Squashling)</td>
+</tr>
+<tr>
+<td>35</td>
+<td>PvP kills while under influence of something</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td>Aquiring Soulbound Item</td>
+<td>Item ID</td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td>Winning Arenas</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>41</td>
+<td>Eating/Drinking specific food</td>
+<td>Item ID</td>
+<td></td>
+</tr>
+<tr>
+<td>42</td>
+<td>Fishing things up</td>
+<td>Item ID</td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td>Exploration</td>
+<td>Location ID</td>
+<td></td>
+</tr>
+<tr>
+<td>45</td>
+<td>Purchasing 7 bank slots</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>46</td>
+<td>Exalted Reputation</td>
+<td>Faction ID?</td>
+<td></td>
+</tr>
+<tr>
+<td>47</td>
+<td>5 Reps to exalted</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>49</td>
+<td>Equip Item of quality</td>
+<td>Slot ID</td>
+<td>Quality is probably in flags somewhere</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Killing specific class</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>53</td>
+<td>Killing a specific race</td>
+<td>Race ID?</td>
+<td></td>
+</tr>
+<tr>
+<td>54</td>
+<td>Use Emote on target</td>
+<td>Emote ID?</td>
+<td></td>
+</tr>
+<tr>
+<td>56</td>
+<td>Being a Wrecking ball in alterac valley</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>62</td>
+<td>Getting gold from quests</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>67</td>
+<td>Looting gold</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>68</td>
+<td>Reading books</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>70</td>
+<td>Killing players</td>
+<td></td>
+<td>World PvP</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Fishing things from school/wreckage</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>73</td>
+<td>Killing Mal'Ganis on Heroic</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>75</td>
+<td>Obtaining Mounts</td>
+<td>Mount ID?</td>
+<td></td>
+</tr>
+<tr>
+<td>109</td>
+<td>Fishing in general/specific location</td>
+<td>Location ID?</td>
+<td></td>
+</tr>
+<tr>
+<td>110</td>
+<td>Casting spells on specific targets</td>
+<td>Spell ID</td>
+<td></td>
+</tr>
+<tr>
+<td>112</td>
+<td>Learning Cooking Recipe</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113</td>
+<td>Honorable Kills</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="effect-types">Effect Types</h3>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Has Aura?</th>
+<th>Is Procedural?</th>
+<th>Miscvalue Type</th>
+<th>Extra Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Instakill</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>School Damage</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Serverside Script</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Teleport</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Apply Aura</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Environment Damage</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Drain Power</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Drain Health</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Heal</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Bind Hearth</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Portal</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Increase Max Currency</td>
+<td>0</td>
+<td>0</td>
+<td>Currency</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Complete Quest</td>
+<td>0</td>
+<td>0</td>
+<td>Quest</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Weapon Damage</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>Ressurect with % Health and Mana</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Extra Attacks</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Can Dodge</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Can Evade</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Can Parry</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>Can Block</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>Create Item</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>Can Use Weapon</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>Knows Defense Skill</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>Persistent Area Aura</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td>Procedural?</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Summon</td>
+<td>0</td>
+<td>0</td>
+<td>Creature</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>Blink</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>Give Power</td>
+<td>0</td>
+<td>0</td>
+<td>PowerType</td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>Weapon Damage %</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>Trigger Missile</td>
+<td>0</td>
+<td>0</td>
+<td>Missile</td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td>Open Object</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>Transform Item</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td>Apply Area Aura</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td>Learn Spell</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td>OBSOLETE</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>38</td>
+<td>Dispell</td>
+<td>0</td>
+<td>0</td>
+<td>School</td>
+<td></td>
+</tr>
+<tr>
+<td>39</td>
+<td>Learn Language</td>
+<td>0</td>
+<td>0</td>
+<td>Language</td>
+<td></td>
+</tr>
+<tr>
+<td>40</td>
+<td>Dual Wield</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>41</td>
+<td>Jump to Target</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>42</td>
+<td>Jump Behind Target</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td>Teleport Target to Caster</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>44</td>
+<td>Learn Skill Step</td>
+<td>0</td>
+<td>0</td>
+<td>Skill</td>
+<td></td>
+</tr>
+<tr>
+<td>45</td>
+<td>Give Honor</td>
+<td>0</td>
+<td>0</td>
+<td>Amount?</td>
+<td></td>
+</tr>
+<tr>
+<td>46</td>
+<td>Spawn Effect</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47</td>
+<td>Trade Skill</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>48</td>
+<td>Base Stealth</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>49</td>
+<td>Base Detect Stealth</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>50</td>
+<td>Summon Object</td>
+<td>0</td>
+<td>0</td>
+<td>GameObject</td>
+<td></td>
+</tr>
+<tr>
+<td>52</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>53</td>
+<td>Enchant Item</td>
+<td>0</td>
+<td>0</td>
+<td>Enchant</td>
+<td></td>
+</tr>
+<tr>
+<td>54</td>
+<td>Enchant Item - Temporary</td>
+<td>0</td>
+<td>0</td>
+<td>Enchant</td>
+<td></td>
+</tr>
+<tr>
+<td>55</td>
+<td>Tame Creature</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>56</td>
+<td>Summon Pet</td>
+<td>0</td>
+<td>0</td>
+<td>Creature</td>
+<td></td>
+</tr>
+<tr>
+<td>57</td>
+<td>Learn Spell - Pet</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td>Deal Weapon Damage + Offset</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>59</td>
+<td>Open and Fast loot</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>60</td>
+<td>Proficiency</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>61</td>
+<td>Send Script Event</td>
+<td>0</td>
+<td>0</td>
+<td>Script</td>
+<td></td>
+</tr>
+<tr>
+<td>62</td>
+<td>Power Burn</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>unknown 4 is the % burn</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Threat</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>64</td>
+<td>Trigger Spell</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>65</td>
+<td>Apply Area Aura</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>66</td>
+<td>Create or Recharge Item</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>67</td>
+<td>Heal to Full</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>68</td>
+<td>Interrupt Target</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>69</td>
+<td>Distract</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>70</td>
+<td>Distract Move</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>71</td>
+<td>Pickpocket</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>72</td>
+<td>Far Sight</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>73</td>
+<td>Forget Talents</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>74</td>
+<td>Use Glyph</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>75</td>
+<td>Mechanical Heal</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>76</td>
+<td>Summon Object - Temporary</td>
+<td>0</td>
+<td>0</td>
+<td>GameObject</td>
+<td></td>
+</tr>
+<tr>
+<td>77</td>
+<td>Script</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>78</td>
+<td>Serverside Script</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>79</td>
+<td>Abort Pending Attacks</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>80</td>
+<td>Set or Add Follower iLvl</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>81</td>
+<td>Push Spell To Bar</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>82</td>
+<td>Bind Sight</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>83</td>
+<td>Duel</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>84</td>
+<td>Unstuck</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>85</td>
+<td>Summon Target Player</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>86</td>
+<td>Activate Object</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>87</td>
+<td>Siege Damage</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>88</td>
+<td>Repair Building</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>89</td>
+<td>Siege Building Action</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>90</td>
+<td>Kill Credit</td>
+<td>0</td>
+<td>0</td>
+<td>Creature</td>
+<td></td>
+</tr>
+<tr>
+<td>91</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>92</td>
+<td>Enchant Held Item</td>
+<td>0</td>
+<td>0</td>
+<td>Enchant</td>
+<td></td>
+</tr>
+<tr>
+<td>93</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>94</td>
+<td>Self Ressurect With %</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>95</td>
+<td>Skin Mob</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>96</td>
+<td>Charge</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>97</td>
+<td>Summon Totems</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>98</td>
+<td>Knock Back</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>99</td>
+<td>Disenchant</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>100</td>
+<td>Intoxicate</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>101</td>
+<td>Feed Pet</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>102</td>
+<td>Dismiss Pet</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>103</td>
+<td>Increase Reputation</td>
+<td>0</td>
+<td>0</td>
+<td>Reputation</td>
+<td></td>
+</tr>
+<tr>
+<td>104</td>
+<td>Drop Trap</td>
+<td>0</td>
+<td>0</td>
+<td>GameObject</td>
+<td></td>
+</tr>
+<tr>
+<td>105</td>
+<td>Survey - Archeology</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>106</td>
+<td>Place Raid Marker</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>107</td>
+<td>Loot Nearby Corpse</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>108</td>
+<td>Dispell Magic</td>
+<td>0</td>
+<td>0</td>
+<td>School</td>
+<td></td>
+</tr>
+<tr>
+<td>109</td>
+<td>Ressurect Pet with %</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>111</td>
+<td>Damage Durability?</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>112</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>114</td>
+<td>Taunt</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>115</td>
+<td>Durability Damage %</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>116</td>
+<td>Remove PvP Insignia</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>117</td>
+<td>AoE Ressurect with %</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>118</td>
+<td>Learn Skill</td>
+<td>0</td>
+<td>0</td>
+<td>Skill</td>
+<td></td>
+</tr>
+<tr>
+<td>119</td>
+<td>Apply Aura - Pet</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>121</td>
+<td>Weapon Damage with Offset</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>122</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>123</td>
+<td>Quest Flight Path</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>124</td>
+<td>Pull</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>125</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>126</td>
+<td>Spell Steal</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>127</td>
+<td>Prospect</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>128</td>
+<td>Apply Aura &lt;2&gt;</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>129</td>
+<td>Apply Aura &lt;3&gt;</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>130</td>
+<td>Transfer Threat</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>131</td>
+<td>Play Sound</td>
+<td>0</td>
+<td>0</td>
+<td>Sound</td>
+<td></td>
+</tr>
+<tr>
+<td>132</td>
+<td>Play Music</td>
+<td>0</td>
+<td>0</td>
+<td>Sound</td>
+<td></td>
+</tr>
+<tr>
+<td>133</td>
+<td>Unlearn Spell</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>134</td>
+<td>Kill Credit</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>135</td>
+<td>Call Pet</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>136</td>
+<td>Heal Target for %</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>137</td>
+<td>Get % Total Power</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>138</td>
+<td>Jump</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>139</td>
+<td>Abandon Quest</td>
+<td>0</td>
+<td>0</td>
+<td>Quest</td>
+<td></td>
+</tr>
+<tr>
+<td>140</td>
+<td>Cast Spell on Behalf of Target onto Self</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>141</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>142</td>
+<td>Trigger Spell with Value</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>143</td>
+<td>Apply Aura - Pet Owner</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>144</td>
+<td>Area Knockback</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>145</td>
+<td>Suspend Gravity</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>146</td>
+<td>Activate Rune</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>147</td>
+<td>Fail Quest</td>
+<td>0</td>
+<td>0</td>
+<td>Quest</td>
+<td></td>
+</tr>
+<tr>
+<td>148</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>149</td>
+<td>Charge to Object</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>150</td>
+<td>Start Quest</td>
+<td>0</td>
+<td>0</td>
+<td>Quest</td>
+<td></td>
+</tr>
+<tr>
+<td>151</td>
+<td>Validate Summon</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>152</td>
+<td>Summon Friend</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>153</td>
+<td>Pet??</td>
+<td>0</td>
+<td>0</td>
+<td>Creature</td>
+<td></td>
+</tr>
+<tr>
+<td>154</td>
+<td>Learn Flight Path</td>
+<td>0</td>
+<td>0</td>
+<td>FlightPath</td>
+<td></td>
+</tr>
+<tr>
+<td>155</td>
+<td>Titan's Grip</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>156</td>
+<td>Add Socket to Item</td>
+<td>0</td>
+<td>0</td>
+<td>Enchant</td>
+<td></td>
+</tr>
+<tr>
+<td>157</td>
+<td>Create Tradeskill Item</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>158</td>
+<td>Milling</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>159</td>
+<td>Rename Pet</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>160</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>161</td>
+<td>Change Talent Spec Count</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>162</td>
+<td>Switch Spec</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>163</td>
+<td>Obliterate</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>164</td>
+<td>Cancel Area</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>165</td>
+<td>Deal % School Damage</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>166</td>
+<td>Give Currency</td>
+<td>0</td>
+<td>0</td>
+<td>Currency</td>
+<td></td>
+</tr>
+<tr>
+<td>167</td>
+<td>Update Player Phase</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>168</td>
+<td>Allow Control Pet</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>169</td>
+<td>Destroy Item</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>170</td>
+<td>Update Player Auras</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>171</td>
+<td>Summon Object</td>
+<td>0</td>
+<td>0</td>
+<td>GameObject</td>
+<td></td>
+</tr>
+<tr>
+<td>172</td>
+<td>Mass Ressurection</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>173</td>
+<td>Unlock Guild Bank Slot</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>174</td>
+<td>Unknown Effect With Aura</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>175</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>176</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>177</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>178</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>179</td>
+<td>Create Area Trigger</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>180</td>
+<td>Update Area Trigger</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>181</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>182</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>183</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>184</td>
+<td>Give Reputation</td>
+<td>0</td>
+<td>0</td>
+<td>Reputation</td>
+<td></td>
+</tr>
+<tr>
+<td>185</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>186</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>187</td>
+<td>Randomize Digsites</td>
+<td>0</td>
+<td>0</td>
+<td>Map</td>
+<td></td>
+</tr>
+<tr>
+<td>188</td>
+<td>Summon and Move Pets</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>189</td>
+<td>Unknwon</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>190</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>191</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>192</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>193</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>195</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>196</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>197</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>198</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>199</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>200</td>
+<td>Resurect Battle Pets At Percent</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td>Battle Pet Training</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>202</td>
+<td>Unknown (AURA)</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>203</td>
+<td>Cast Spell</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>204</td>
+<td>Upgrade Battle Pet</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>205</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>206</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>207</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>208</td>
+<td>Set Reputation</td>
+<td>0</td>
+<td>0</td>
+<td>Reputation</td>
+<td></td>
+</tr>
+<tr>
+<td>209</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>210</td>
+<td>Learn Garrison Building</td>
+<td>0</td>
+<td>0</td>
+<td>GarrisonBuilding</td>
+<td></td>
+</tr>
+<tr>
+<td>211</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>213</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>214</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>215</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>216</td>
+<td>Create Shpont??</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>217</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>218</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>219</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>220</td>
+<td>Obtain Follower</td>
+<td>0</td>
+<td>0</td>
+<td>Follower</td>
+<td></td>
+</tr>
+<tr>
+<td>221</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>222</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>223</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>224</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>225</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>226</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>227</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>228</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>229</td>
+<td>Set Follower Quality</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>231</td>
+<td>Give Follower Exp</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>232</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>233</td>
+<td>Retrain Follower</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>235</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>236</td>
+<td>Gain Exp</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>237</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>238</td>
+<td>Gain Skill Points</td>
+<td>0</td>
+<td>0</td>
+<td>Skill</td>
+<td></td>
+</tr>
+<tr>
+<td>239</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>241</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>242</td>
+<td>Artifact Power (No Scaling)</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>243</td>
+<td>Apply Enchant Appearance</td>
+<td>0</td>
+<td>0</td>
+<td>Enchant</td>
+<td></td>
+</tr>
+<tr>
+<td>244</td>
+<td>Teach Follower Ability</td>
+<td>0</td>
+<td>0</td>
+<td>FollowerAbility</td>
+<td></td>
+</tr>
+<tr>
+<td>245</td>
+<td>Upgrade Hierloom to level</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>246</td>
+<td>Complete Mission</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>247</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>248</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>249</td>
+<td>Gain Artifact Weapon</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>250</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td>Item</td>
+<td></td>
+</tr>
+<tr>
+<td>251</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>252</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>253</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>254</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>255</td>
+<td>Unknown</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td>Looks like 'LEARN TMOG SET'</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="aura-types">Aura Types</h3>
+<p>This table needs to be fixed up.</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Type</th>
+<th>Extra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>Possess</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Periodic Damage</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Dummy</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Confuse</td>
+<td>(1)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Charm</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Fear</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Periodic Heal</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Mod Attack Speed</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Mod Threat</td>
+<td>(127)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Taunt</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Stun</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Mod Damage Done</td>
+<td>(Physical)</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Mod Damage Taken</td>
+<td>(Physical)</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Damage shield</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Stealth</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Stealth Detection</td>
+<td>(1)</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Invisibility</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Invisibility Detection</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Mod Total Health Regen %</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Mod Total Power Regen %</td>
+<td>(Mana)</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Mod Resistance</td>
+<td>(Physical)</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Unknown Effect (Effect #0)</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>Periodically give power</td>
+<td>(Mana)</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Pacify</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>Root</td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>Silence</td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Reflect All Spells</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>Mod Stat</td>
+<td>(Strength)</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Mod Skill - Temporary</td>
+<td>(</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Increase Run Speed %</td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>Mod Mounted Speed %</td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td>Decrease Run Speed %</td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>Increase Max Health - Flat</td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td>Increase Max Power - Flat</td>
+<td>(Mana)</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Shapeshift</td>
+<td>(Cat Form)</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Effect Immunity</td>
+<td>(Summon Player)</td>
+</tr>
+<tr>
+<td>38</td>
+<td>State Immunity</td>
+<td>(Stunned)</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Immunity</td>
+<td>(Arcane, Fire, Frost, Holy, Nature, Physical, Shadow)</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Immunity - Damage Only</td>
+<td>(All)</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Immunity - Debuffs Only</td>
+<td>(Poison)</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Proc Trigger Spell</td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td>Proc Trigger Damage</td>
+<td></td>
+</tr>
+<tr>
+<td>44</td>
+<td>Track Creatures</td>
+<td>(Critter)</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Track Resources</td>
+<td>(Herbalism)</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Mod Parry %</td>
+<td></td>
+</tr>
+<tr>
+<td>48</td>
+<td>Unknown</td>
+<td>(Aura #48)</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Mod Dodge %</td>
+<td></td>
+</tr>
+<tr>
+<td>50</td>
+<td>Mod Amount Healed by Critical Heals %</td>
+<td>(895)</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Mod Block %</td>
+<td></td>
+</tr>
+<tr>
+<td>52</td>
+<td>Mod Melee &amp; Ranged Crit %</td>
+<td></td>
+</tr>
+<tr>
+<td>53</td>
+<td>Periodically Leech Health</td>
+<td></td>
+</tr>
+<tr>
+<td>54</td>
+<td>Mod Melee &amp; Ranged Hit Chance %</td>
+<td></td>
+</tr>
+<tr>
+<td>55</td>
+<td>Mod Spell Hit Chance %</td>
+<td></td>
+</tr>
+<tr>
+<td>56</td>
+<td>Change Model</td>
+<td>(</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Mod Spell Crit %</td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td>Increase Swim Speed %</td>
+<td></td>
+</tr>
+<tr>
+<td>59</td>
+<td>Increase Physical Damage &amp; Spell Damage</td>
+<td>(Demon)</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Pacify &amp; Silence</td>
+<td></td>
+</tr>
+<tr>
+<td>61</td>
+<td>Mod Size %</td>
+<td></td>
+</tr>
+<tr>
+<td>62</td>
+<td>Periodically Transfer Health</td>
+<td></td>
+</tr>
+<tr>
+<td>63</td>
+<td>Unknown</td>
+<td>(Aura #63) (4)</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Periodically Drain Power</td>
+<td>(Mana)</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Mod Spell Haste %</td>
+<td></td>
+</tr>
+<tr>
+<td>66</td>
+<td>Feign Death</td>
+<td></td>
+</tr>
+<tr>
+<td>67</td>
+<td>Disarm</td>
+<td></td>
+</tr>
+<tr>
+<td>68</td>
+<td>Stalked</td>
+<td></td>
+</tr>
+<tr>
+<td>69</td>
+<td>Absorb Damage</td>
+<td>(Arcane, Fire, Frost, Holy, Nature, Physical, Shadow)</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Unknown</td>
+<td>(Aura #70)</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Mod Spell Crit %</td>
+<td></td>
+</tr>
+<tr>
+<td>72</td>
+<td>Mod Mana Cost %</td>
+<td>(All)</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Mod Mana Cost %</td>
+<td>(Frost)</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Reflect Spells</td>
+<td>(All)</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Force Language</td>
+<td>(Demonic)</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Far Sight</td>
+<td>(15)</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Immunity - Mechanic</td>
+<td>(Polymorphed)</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Mounted</td>
+<td>(</td>
+</tr>
+<tr>
+<td>79</td>
+<td>Mod Damage Done %</td>
+<td>(Physical)</td>
+</tr>
+<tr>
+<td>80</td>
+<td>Mod Stat %</td>
+<td>(All)</td>
+</tr>
+<tr>
+<td>81</td>
+<td>Split Damage %</td>
+<td>(Arcane, Fire, Frost, Holy, Nature, Physical, Shadow)</td>
+</tr>
+<tr>
+<td>82</td>
+<td>Underwater Breathing</td>
+<td></td>
+</tr>
+<tr>
+<td>83</td>
+<td>Mod Base Resistance Flat</td>
+<td>(All)</td>
+</tr>
+<tr>
+<td>84</td>
+<td>Health Regen</td>
+<td></td>
+</tr>
+<tr>
+<td>85</td>
+<td>Power Regen</td>
+<td>(Mana)</td>
+</tr>
+<tr>
+<td>86</td>
+<td>Create Item on Death</td>
+<td></td>
+</tr>
+<tr>
+<td>87</td>
+<td>Mod % Damage Taken</td>
+<td>(Arcane, Fire, Frost, Holy, Nature, Physical, Shadow)</td>
+</tr>
+<tr>
+<td>88</td>
+<td>Mod Health Regen %</td>
+<td></td>
+</tr>
+<tr>
+<td>89</td>
+<td>Mod Periodic Damage %</td>
+<td></td>
+</tr>
+<tr>
+<td>90</td>
+<td>Unknown</td>
+<td>(Aura #90)</td>
+</tr>
+<tr>
+<td>91</td>
+<td>Mod Aggro Range</td>
+<td></td>
+</tr>
+<tr>
+<td>92</td>
+<td>Cannot Flee</td>
+<td></td>
+</tr>
+<tr>
+<td>93</td>
+<td>Unattackable</td>
+<td></td>
+</tr>
+<tr>
+<td>94</td>
+<td>Interrupt Power Decay</td>
+<td></td>
+</tr>
+<tr>
+<td>95</td>
+<td>Ghost</td>
+<td></td>
+</tr>
+<tr>
+<td>96</td>
+<td>Magnet</td>
+<td></td>
+</tr>
+<tr>
+<td>97</td>
+<td>Absorb Damage - Mana Shield</td>
+<td>(Physical)</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Mod Skill</td>
+<td>(</td>
+</tr>
+<tr>
+<td>99</td>
+<td>Mod Melee Attack Power</td>
+<td></td>
+</tr>
+<tr>
+<td>100</td>
+<td>Always Show Debuffs</td>
+<td>(Obsolete)</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Mod Resistance %</td>
+<td>(Physical)</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Mod Melee Attack Power vs Creature</td>
+<td>(Demon)</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Mod Threat Flat - Temporary</td>
+<td></td>
+</tr>
+<tr>
+<td>104</td>
+<td>Water Walking</td>
+<td></td>
+</tr>
+<tr>
+<td>105</td>
+<td>Slow Fall</td>
+<td></td>
+</tr>
+<tr>
+<td>106</td>
+<td>Levitate</td>
+<td>/ Hover</td>
+</tr>
+<tr>
+<td>107</td>
+<td>Modifies Effect</td>
+<td>#3's Value (23)</td>
+</tr>
+<tr>
+<td>108</td>
+<td>Modifies Power Cost</td>
+<td>(14)</td>
+</tr>
+<tr>
+<td>109</td>
+<td>Proc Spell on Target</td>
+<td></td>
+</tr>
+<tr>
+<td>110</td>
+<td>Mod Power Regen %</td>
+<td>(Energy)</td>
+</tr>
+<tr>
+<td>111</td>
+<td>Intercept % of all Melee &amp; Ranged Attacks</td>
+<td></td>
+</tr>
+<tr>
+<td>112</td>
+<td>Override Class Script</td>
+<td>(911)</td>
+</tr>
+<tr>
+<td>114</td>
+<td>Mod Ranged Damage Taken - %</td>
+<td>(1)</td>
+</tr>
+<tr>
+<td>115</td>
+<td>Mod Healing Taken - Flat</td>
+<td>(All)</td>
+</tr>
+<tr>
+<td>116</td>
+<td>Allow % of Health Regeneration to Continue in Combat</td>
+<td></td>
+</tr>
+<tr>
+<td>117</td>
+<td>Give % Chance to Resist Mechanic</td>
+<td>(Silenced)</td>
+</tr>
+<tr>
+<td>118</td>
+<td>Mod Healing Taken - %</td>
+<td>(Arcane, Fire, Frost, Holy, Nature, Physical, Shadow)</td>
+</tr>
+<tr>
+<td>119</td>
+<td>Unknown</td>
+<td>(Aura #119)</td>
+</tr>
+<tr>
+<td>120</td>
+<td>Untrackable</td>
+<td></td>
+</tr>
+<tr>
+<td>121</td>
+<td>Beast Lore</td>
+<td></td>
+</tr>
+<tr>
+<td>122</td>
+<td>Mod Off-Hand Damage Done %</td>
+<td></td>
+</tr>
+<tr>
+<td>123</td>
+<td>Reduce Target Resistances - Flat</td>
+<td>(Fire)</td>
+</tr>
+<tr>
+<td>124</td>
+<td>Mod Ranged Attack Power</td>
+<td></td>
+</tr>
+<tr>
+<td>125</td>
+<td>Mod Melee Damage Taken</td>
+<td></td>
+</tr>
+<tr>
+<td>126</td>
+<td>Mod Melee Damage Taken - %</td>
+<td></td>
+</tr>
+<tr>
+<td>127</td>
+<td>Mod Attacker Ranged Attack Power</td>
+<td></td>
+</tr>
+<tr>
+<td>128</td>
+<td>Take Control of Pet</td>
+<td></td>
+</tr>
+<tr>
+<td>129</td>
+<td>Increase Run Speed % - Stacks</td>
+<td></td>
+</tr>
+<tr>
+<td>130</td>
+<td>Incerase Mounted Speed % - Stacks</td>
+<td></td>
+</tr>
+<tr>
+<td>131</td>
+<td>Mod Ranged Attack Power vs Creature</td>
+<td>(Demon)</td>
+</tr>
+<tr>
+<td>132</td>
+<td>Mod Increase Maximum Power - %</td>
+<td>(Mana)</td>
+</tr>
+<tr>
+<td>133</td>
+<td>Mod Increase Maximum Health - %</td>
+<td></td>
+</tr>
+<tr>
+<td>134</td>
+<td>Allow % of Mana Regeneration to Continue in Combat</td>
+<td></td>
+</tr>
+<tr>
+<td>135</td>
+<td>Mod Healing Power</td>
+<td>(All)</td>
+</tr>
+<tr>
+<td>136</td>
+<td>Mod Healing Power - %</td>
+<td>(Arcane, Fire, Frost, Holy, Nature, Physical, Shadow)</td>
+</tr>
+<tr>
+<td>137</td>
+<td>Mod Stat - %</td>
+<td>(Stamina)</td>
+</tr>
+<tr>
+<td>138</td>
+<td>Mod Melee Attack Speed - %</td>
+<td></td>
+</tr>
+<tr>
+<td>139</td>
+<td>Force Reputation</td>
+<td>(</td>
+</tr>
+<tr>
+<td>140</td>
+<td>Mod Ranged Attack Speed - %</td>
+<td></td>
+</tr>
+<tr>
+<td>141</td>
+<td>Mod Ranged Attack Speed - % - Ammo Only</td>
+<td>(1)</td>
+</tr>
+<tr>
+<td>142</td>
+<td>Mod Base Resistance - %</td>
+<td>(Fire)</td>
+</tr>
+<tr>
+<td>143</td>
+<td>Mod Resistace - Flat - Does not Stack</td>
+<td>(Frost, Nature, Shadow)</td>
+</tr>
+<tr>
+<td>144</td>
+<td>Reduce Falling Damage by %</td>
+<td></td>
+</tr>
+<tr>
+<td>145</td>
+<td>Increase Pet Talent Points</td>
+<td>(1728)</td>
+</tr>
+<tr>
+<td>146</td>
+<td>Allow Exotic Pets Taming</td>
+<td>(1)</td>
+</tr>
+<tr>
+<td>147</td>
+<td>Add Creature Immunity</td>
+<td>(?) (Asleep, Disarmed, Distracted, Snared, Slowed)</td>
+</tr>
+<tr>
+<td>148</td>
+<td>Add Combo Points for</td>
+<td>20 Seconds (1392)</td>
+</tr>
+<tr>
+<td>149</td>
+<td>Decrease Pushback Time by %</td>
+<td>(All)</td>
+</tr>
+<tr>
+<td>150</td>
+<td>Mod Block Value - %</td>
+<td></td>
+</tr>
+<tr>
+<td>151</td>
+<td>Track Hidden</td>
+<td></td>
+</tr>
+<tr>
+<td>152</td>
+<td>Mod Aggro Range of Mobs Against You</td>
+<td></td>
+</tr>
+<tr>
+<td>153</td>
+<td>Unknown</td>
+<td>(Aura #153)</td>
+</tr>
+<tr>
+<td>154</td>
+<td>Mod Stealth Effectiveness</td>
+<td></td>
+</tr>
+<tr>
+<td>155</td>
+<td>Underwater Breathing</td>
+<td></td>
+</tr>
+<tr>
+<td>156</td>
+<td>Mod All Reputation Gained by %</td>
+<td></td>
+</tr>
+<tr>
+<td>157</td>
+<td>Mod All Pet Damage Taken</td>
+<td></td>
+</tr>
+<tr>
+<td>158</td>
+<td>Mod Block Value</td>
+<td></td>
+</tr>
+<tr>
+<td>159</td>
+<td>Worth No Honor</td>
+<td></td>
+</tr>
+<tr>
+<td>161</td>
+<td>Regen Health - Works in Combat</td>
+<td></td>
+</tr>
+<tr>
+<td>162</td>
+<td>Power Burn</td>
+<td>(Mana)</td>
+</tr>
+<tr>
+<td>163</td>
+<td>Mod Melee Critical Damage %</td>
+<td>(Arcane, Fire, Frost, Holy, Nature, Physical, Shadow)</td>
+</tr>
+<tr>
+<td>164</td>
+<td>Unknown</td>
+<td>(Aura #164)</td>
+</tr>
+<tr>
+<td>165</td>
+<td>Marked by a Guard</td>
+<td></td>
+</tr>
+<tr>
+<td>166</td>
+<td>Mod Melee Attack Power - %</td>
+<td></td>
+</tr>
+<tr>
+<td>167</td>
+<td>Mod Ranged Attack Power - %</td>
+<td></td>
+</tr>
+<tr>
+<td>168</td>
+<td>Mod All Damage Done Against Creature - %</td>
+<td>(Demon, Undead)</td>
+</tr>
+<tr>
+<td>169</td>
+<td>Unknown</td>
+<td>(Aura #169)</td>
+</tr>
+<tr>
+<td>170</td>
+<td>Make a Certain Object Visible</td>
+<td>(1)</td>
+</tr>
+<tr>
+<td>171</td>
+<td>Mod Mounted Speed % - Stacks</td>
+<td></td>
+</tr>
+<tr>
+<td>172</td>
+<td>Mod Mounted Speed % - Doesn</td>
+<td>'t Stack with Anything</td>
+</tr>
+<tr>
+<td>173</td>
+<td>Unknown</td>
+<td>(Aura #173) (1201)</td>
+</tr>
+<tr>
+<td>174</td>
+<td>Mod Spell Power by % of Stat</td>
+<td>(All)</td>
+</tr>
+<tr>
+<td>175</td>
+<td>Mod Healing Power by % of Stat</td>
+<td>(Intellect)</td>
+</tr>
+<tr>
+<td>176</td>
+<td>Spirit of Redemption</td>
+<td></td>
+</tr>
+<tr>
+<td>177</td>
+<td>Mind Control</td>
+<td>(AoE only?)</td>
+</tr>
+<tr>
+<td>178</td>
+<td>Mod Debuff Resistance - %</td>
+<td></td>
+</tr>
+<tr>
+<td>179</td>
+<td>Mod Attacker Crit Chance %</td>
+<td>(Holy, Nature, Physical)</td>
+</tr>
+<tr>
+<td>180</td>
+<td>Mod Spell Power Against Creature</td>
+<td>(Undead)</td>
+</tr>
+<tr>
+<td>181</td>
+<td>Unknown</td>
+<td>(Aura #181) (1220)</td>
+</tr>
+<tr>
+<td>182</td>
+<td>Mod Resistance by % of Stat</td>
+<td>(187)</td>
+</tr>
+<tr>
+<td>183</td>
+<td>Mod Threat % of Critical Hits</td>
+<td></td>
+</tr>
+<tr>
+<td>184</td>
+<td>Mod Attacker Melee Hit Chance - %</td>
+<td></td>
+</tr>
+<tr>
+<td>185</td>
+<td>Mod Attacker Ranged Hit Chance - %</td>
+<td></td>
+</tr>
+<tr>
+<td>186</td>
+<td>Mod Attacker Spell Hit Chance - %</td>
+<td>(126)</td>
+</tr>
+<tr>
+<td>187</td>
+<td>Mod Attacker Melee Crit Chance - %</td>
+<td></td>
+</tr>
+<tr>
+<td>188</td>
+<td>Mod Attacker Ranged Crit Chance - %</td>
+<td></td>
+</tr>
+<tr>
+<td>189</td>
+<td>Mod Rating</td>
+<td>(</td>
+</tr>
+<tr>
+<td>190</td>
+<td>Mod Reputation Gained %</td>
+<td>(</td>
+</tr>
+<tr>
+<td>191</td>
+<td>Run Speed Limit %</td>
+<td></td>
+</tr>
+<tr>
+<td>192</td>
+<td>Increase Attack Speed %</td>
+<td></td>
+</tr>
+<tr>
+<td>193</td>
+<td>Decrease Attack Speed %</td>
+<td></td>
+</tr>
+<tr>
+<td>194</td>
+<td>Bypass Damage Reduction Effects</td>
+<td>(Nature, Shadow)</td>
+</tr>
+<tr>
+<td>196</td>
+<td>Increase All Cooldowns</td>
+<td></td>
+</tr>
+<tr>
+<td>197</td>
+<td>Mod Chance to be Critically Hit %</td>
+<td>(Arcane, Fire, Frost, Holy, Nature, Physical, Shadow)</td>
+</tr>
+<tr>
+<td>198</td>
+<td>Unknown</td>
+<td>(Aura #198) (256)</td>
+</tr>
+<tr>
+<td>199</td>
+<td>Mod Spell Hit Chance %</td>
+<td>(21)</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Mod Experience Gained %</td>
+<td>(mob kills only)</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Cannot dodge</td>
+<td>, block or parry</td>
+</tr>
+<tr>
+<td>203</td>
+<td>Mod Melee Crit Damage Taken by %</td>
+<td></td>
+</tr>
+<tr>
+<td>204</td>
+<td>Mod Ranged Crit Damage Taken by %</td>
+<td></td>
+</tr>
+<tr>
+<td>205</td>
+<td>Mod Spell Crit Damage Taken by %</td>
+<td>(Physical)</td>
+</tr>
+<tr>
+<td>206</td>
+<td>Mod Flight Speed % - Stacks</td>
+<td></td>
+</tr>
+<tr>
+<td>207</td>
+<td>Mod Flight Speed %</td>
+<td></td>
+</tr>
+<tr>
+<td>208</td>
+<td>Mod Flight Speed %</td>
+<td></td>
+</tr>
+<tr>
+<td>209</td>
+<td>Mod Mounted Speed %</td>
+<td></td>
+</tr>
+<tr>
+<td>210</td>
+<td>Mod Flight Speed %</td>
+<td></td>
+</tr>
+<tr>
+<td>211</td>
+<td>Mod Mounted Speed %</td>
+<td>(ground + flying)</td>
+</tr>
+<tr>
+<td>212</td>
+<td>Mod Ranged Attack Power by % of Stat</td>
+<td>(1)</td>
+</tr>
+<tr>
+<td>213</td>
+<td>Mod Rage % Generated From Damage Dealt</td>
+<td></td>
+</tr>
+<tr>
+<td>214</td>
+<td>Tamed Pet Passive</td>
+<td></td>
+</tr>
+<tr>
+<td>215</td>
+<td>Arena Preparation</td>
+<td></td>
+</tr>
+<tr>
+<td>216</td>
+<td>Mod Casting Speed - %</td>
+<td></td>
+</tr>
+<tr>
+<td>217</td>
+<td>Unknown</td>
+<td>(Aura #217)</td>
+</tr>
+<tr>
+<td>218</td>
+<td>Aura Unknown - %</td>
+<td>(3)</td>
+</tr>
+<tr>
+<td>219</td>
+<td>Mod Mana Regeneration by % of Stat</td>
+<td>(7)</td>
+</tr>
+<tr>
+<td>220</td>
+<td>Mod Combat Rating by % of Stat</td>
+<td>(</td>
+</tr>
+<tr>
+<td>221</td>
+<td>Ignored</td>
+<td></td>
+</tr>
+<tr>
+<td>222</td>
+<td>Unknown</td>
+<td>(Aura #222)</td>
+</tr>
+<tr>
+<td>223</td>
+<td>Unknown</td>
+<td>(Aura #223)</td>
+</tr>
+<tr>
+<td>224</td>
+<td>Unknown</td>
+<td>(Aura #224) (19241)</td>
+</tr>
+<tr>
+<td>225</td>
+<td>Unknown</td>
+<td>(Aura #225) (40)</td>
+</tr>
+<tr>
+<td>226</td>
+<td>Periodic Dummy</td>
+<td></td>
+</tr>
+<tr>
+<td>227</td>
+<td>Periodically Trigger Spell with Value</td>
+<td></td>
+</tr>
+<tr>
+<td>228</td>
+<td>Stealth Detection</td>
+<td>(Always)</td>
+</tr>
+<tr>
+<td>229</td>
+<td>Mod AoE Damage Taken %</td>
+<td>(Arcane, Fire, Frost, Holy, Nature, Physical, Shadow)</td>
+</tr>
+<tr>
+<td>230</td>
+<td>Mod Max Health</td>
+<td></td>
+</tr>
+<tr>
+<td>231</td>
+<td>Unknown</td>
+<td>(Aura #231)</td>
+</tr>
+<tr>
+<td>232</td>
+<td>Mod Mechanic Duration %</td>
+<td>(Snared)</td>
+</tr>
+<tr>
+<td>233</td>
+<td>Change Model of Every Humanoid Seen</td>
+<td>(1728)</td>
+</tr>
+<tr>
+<td>234</td>
+<td>Mod Mechanic Duration % - Does not Stack</td>
+<td>(Disarmed)</td>
+</tr>
+<tr>
+<td>235</td>
+<td>Mod Dispel Resistance %</td>
+<td></td>
+</tr>
+<tr>
+<td>236</td>
+<td>Control Vehicle</td>
+<td></td>
+</tr>
+<tr>
+<td>239</td>
+<td>Mod Size % - Doesn</td>
+<td>'t stack</td>
+</tr>
+<tr>
+<td>240</td>
+<td>Mod Expertise</td>
+<td></td>
+</tr>
+<tr>
+<td>241</td>
+<td>Unknown</td>
+<td>(Aura #241)</td>
+</tr>
+<tr>
+<td>242</td>
+<td>Mod Spell Power &amp; Healing Power by % of Intellect</td>
+<td></td>
+</tr>
+<tr>
+<td>243</td>
+<td>Faction Override</td>
+<td>(2023)</td>
+</tr>
+<tr>
+<td>244</td>
+<td>Comprehend Language</td>
+<td>(Zombie)</td>
+</tr>
+<tr>
+<td>245</td>
+<td>Mod Debuffs Duration %</td>
+<td>(Magic)</td>
+</tr>
+<tr>
+<td>247</td>
+<td>Clone</td>
+<td>(3)</td>
+</tr>
+<tr>
+<td>249</td>
+<td>Create Death Rune</td>
+<td>(Blood)</td>
+</tr>
+<tr>
+<td>250</td>
+<td>Increase Max Health - Stacks</td>
+<td></td>
+</tr>
+<tr>
+<td>251</td>
+<td>Mod Enemy Dodge %</td>
+<td></td>
+</tr>
+<tr>
+<td>252</td>
+<td>Mod Melee</td>
+<td>, Ranged &amp; Spell Haste by %</td>
+</tr>
+<tr>
+<td>253</td>
+<td>Critical Block Chance %</td>
+<td>(8)</td>
+</tr>
+<tr>
+<td>254</td>
+<td>Remove Shield</td>
+<td></td>
+</tr>
+<tr>
+<td>255</td>
+<td>Mod Mechanic Damage %</td>
+<td>(Bleeding)</td>
+</tr>
+<tr>
+<td>258</td>
+<td>Unknown</td>
+<td>(Aura #258) (35591)</td>
+</tr>
+<tr>
+<td>259</td>
+<td>Mod Periodic Healing Taken %</td>
+<td>(Arcane, Fire, Frost, Holy, Nature, Physical, Shadow)</td>
+</tr>
+<tr>
+<td>260</td>
+<td>Screen Effect</td>
+<td>(221)</td>
+</tr>
+<tr>
+<td>261</td>
+<td>Phase</td>
+<td>(2)</td>
+</tr>
+<tr>
+<td>262</td>
+<td>Unknown</td>
+<td>(Aura #262) (126)</td>
+</tr>
+<tr>
+<td>263</td>
+<td>Allows Spells</td>
+<td></td>
+</tr>
+<tr>
+<td>264</td>
+<td>Unknown</td>
+<td>(Aura #264)</td>
+</tr>
+<tr>
+<td>267</td>
+<td>Cancel Aura if Damage Absorbed Reaches X% of Caster Health</td>
+<td>(All)</td>
+</tr>
+<tr>
+<td>269</td>
+<td>Unknown</td>
+<td>(Aura #269) (127)</td>
+</tr>
+<tr>
+<td>270</td>
+<td>Unknown</td>
+<td>(Aura #270) (127)</td>
+</tr>
+<tr>
+<td>271</td>
+<td>Mod All Damage Done % by Caster</td>
+<td></td>
+</tr>
+<tr>
+<td>273</td>
+<td>Unknown</td>
+<td>(Aura #273) (25532)</td>
+</tr>
+<tr>
+<td>275</td>
+<td>Allow Affected Spells to be Used in Any Stance</td>
+<td>(0)</td>
+</tr>
+<tr>
+<td>276</td>
+<td>Mod Damage Done % by Mechanic</td>
+<td>(Distracted)</td>
+</tr>
+<tr>
+<td>278</td>
+<td>Disarm Ranged Weapon</td>
+<td></td>
+</tr>
+<tr>
+<td>279</td>
+<td>Spawn Effect</td>
+<td></td>
+</tr>
+<tr>
+<td>280</td>
+<td>Mod Armor Penetration %</td>
+<td></td>
+</tr>
+<tr>
+<td>281</td>
+<td>Mod All Honor Gain %</td>
+<td></td>
+</tr>
+<tr>
+<td>283</td>
+<td>Mod All Healing Done % by Caster</td>
+<td>(49152)</td>
+</tr>
+<tr>
+<td>284</td>
+<td>Unknown</td>
+<td>(Aura #284)</td>
+</tr>
+<tr>
+<td>287</td>
+<td>Unknown</td>
+<td>(Aura #287)</td>
+</tr>
+<tr>
+<td>288</td>
+<td>Unknown</td>
+<td>(Aura #288)</td>
+</tr>
+<tr>
+<td>289</td>
+<td>Unknown</td>
+<td>(Aura #289)</td>
+</tr>
+<tr>
+<td>290</td>
+<td>Mod Crit Chance % - All</td>
+<td></td>
+</tr>
+<tr>
+<td>291</td>
+<td>Mod Experience Gained %</td>
+<td>(Quests too)</td>
+</tr>
+<tr>
+<td>293</td>
+<td>Mechanic Abilities</td>
+<td>(740)</td>
+</tr>
+<tr>
+<td>294</td>
+<td>Aura of Despair</td>
+<td>(1)</td>
+</tr>
+<tr>
+<td>296</td>
+<td>Unknown</td>
+<td>(Aura #296) (412)</td>
+</tr>
+<tr>
+<td>297</td>
+<td>Unknown</td>
+<td>(Aura #297)</td>
+</tr>
+<tr>
+<td>298</td>
+<td>Unknown</td>
+<td>(Aura #298)</td>
+</tr>
+<tr>
+<td>300</td>
+<td>Unknown</td>
+<td>(Aura #300) (127)</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Mod Healing Absorb %</td>
+<td>(Arcane, Fire, Frost, Holy, Nature, Physical, Shadow)</td>
+</tr>
+<tr>
+<td>303</td>
+<td>Unknown</td>
+<td>(Aura #303) (22)</td>
+</tr>
+<tr>
+<td>304</td>
+<td>Unknown</td>
+<td>(Aura #304) (23697)</td>
+</tr>
+<tr>
+<td>305</td>
+<td>Mod Minimum Speed %</td>
+<td></td>
+</tr>
+<tr>
+<td>308</td>
+<td>Mod Critical Strike %</td>
+<td>(7)</td>
+</tr>
+<tr>
+<td>309</td>
+<td>Unknown</td>
+<td>(Aura #309) (2)</td>
+</tr>
+<tr>
+<td>310</td>
+<td>Mod Pet AOE Damage Avoidance</td>
+<td>(Arcane, Fire, Frost, Holy, Nature, Physical, Shadow)</td>
+</tr>
+<tr>
+<td>311</td>
+<td>Unknown</td>
+<td>(Aura #311) (926)</td>
+</tr>
+<tr>
+<td>312</td>
+<td>Animation Replacement</td>
+<td>(61)</td>
+</tr>
+<tr>
+<td>313</td>
+<td>Unknown</td>
+<td>(Aura #313) (278)</td>
+</tr>
+<tr>
+<td>314</td>
+<td>Unknown</td>
+<td>(Aura #314) (78)</td>
+</tr>
+<tr>
+<td>315</td>
+<td>Unknown</td>
+<td>(Aura #315)</td>
+</tr>
+<tr>
+<td>317</td>
+<td>Unknown</td>
+<td>(Aura #317) (126)</td>
+</tr>
+<tr>
+<td>318</td>
+<td>Mod Mastery %</td>
+<td></td>
+</tr>
+<tr>
+<td>319</td>
+<td>Mod Melee Attack Speed</td>
+<td></td>
+</tr>
+<tr>
+<td>321</td>
+<td>Unknown</td>
+<td>(Aura #321)</td>
+</tr>
+<tr>
+<td>322</td>
+<td>Unknown</td>
+<td>(Aura #322)</td>
+</tr>
+<tr>
+<td>323</td>
+<td>Unknown</td>
+<td>(Aura #323)</td>
+</tr>
+<tr>
+<td>326</td>
+<td>Unknown</td>
+<td>(Aura #326) (17)</td>
+</tr>
+<tr>
+<td>327</td>
+<td>Unknown</td>
+<td>(Aura #327)</td>
+</tr>
+<tr>
+<td>328</td>
+<td>Unknown</td>
+<td>(Aura #328) (10)</td>
+</tr>
+<tr>
+<td>329</td>
+<td>Unknown</td>
+<td>(Aura #329) (6)</td>
+</tr>
+<tr>
+<td>330</td>
+<td>Allows Cast while Moving</td>
+<td>(7)</td>
+</tr>
+<tr>
+<td>331</td>
+<td>Unknown</td>
+<td>(Aura #331) (5)</td>
+</tr>
+<tr>
+<td>332</td>
+<td>Overrides Actionbar Spell</td>
+<td></td>
+</tr>
+<tr>
+<td>333</td>
+<td>Overrides Actionbar Spell</td>
+<td></td>
+</tr>
+<tr>
+<td>335</td>
+<td>Unknown</td>
+<td>(Aura #335)</td>
+</tr>
+<tr>
+<td>336</td>
+<td>Unknown</td>
+<td>(Aura #336) (15)</td>
+</tr>
+<tr>
+<td>338</td>
+<td>Unknown</td>
+<td>(Aura #338) (3)</td>
+</tr>
+<tr>
+<td>340</td>
+<td>Unknown</td>
+<td>(Aura #340) (3)</td>
+</tr>
+<tr>
+<td>341</td>
+<td>Unknown</td>
+<td>(Aura #341) (1176)</td>
+</tr>
+<tr>
+<td>342</td>
+<td>Mod Attack Speed %</td>
+<td></td>
+</tr>
+<tr>
+<td>343</td>
+<td>Unknown</td>
+<td>(Aura #343)</td>
+</tr>
+<tr>
+<td>344</td>
+<td>Mod Auto Attack Damage %</td>
+<td></td>
+</tr>
+<tr>
+<td>345</td>
+<td>Ignore Armor %</td>
+<td></td>
+</tr>
+<tr>
+<td>346</td>
+<td>Unknown</td>
+<td>(Aura #346) (24)</td>
+</tr>
+<tr>
+<td>349</td>
+<td>Mod Currency Gain</td>
+<td>(</td>
+</tr>
+<tr>
+<td>351</td>
+<td>Unknown</td>
+<td>(Aura #351) (82)</td>
+</tr>
+<tr>
+<td>352</td>
+<td>Unknown</td>
+<td>(Aura #352)</td>
+</tr>
+<tr>
+<td>354</td>
+<td>Mod Healing Based on Target Health %</td>
+<td>(2)</td>
+</tr>
+<tr>
+<td>355</td>
+<td>Unknown</td>
+<td>(Aura #355)</td>
+</tr>
+<tr>
+<td>357</td>
+<td>Unknown</td>
+<td>(Aura #357) (1)</td>
+</tr>
+<tr>
+<td>358</td>
+<td>Unknown</td>
+<td>(Aura #358)</td>
+</tr>
+<tr>
+<td>359</td>
+<td>Unknown</td>
+<td>(Aura #359) (22)</td>
+</tr>
+<tr>
+<td>360</td>
+<td>Unknown</td>
+<td>(Aura #360)</td>
+</tr>
+<tr>
+<td>361</td>
+<td>Triggers AoE</td>
+<td></td>
+</tr>
+<tr>
+<td>362</td>
+<td>Unknown</td>
+<td>(Aura #362)</td>
+</tr>
+<tr>
+<td>363</td>
+<td>Unknown</td>
+<td>(Aura #363)</td>
+</tr>
+<tr>
+<td>365</td>
+<td>Unknown</td>
+<td>(Aura #365)</td>
+</tr>
+<tr>
+<td>366</td>
+<td>Override Spell Power By AP %</td>
+<td></td>
+</tr>
+<tr>
+<td>367</td>
+<td>Unknown</td>
+<td>(Aura #367) (114093)</td>
+</tr>
+<tr>
+<td>368</td>
+<td>Unknown</td>
+<td>(Aura #368)</td>
+</tr>
+<tr>
+<td>369</td>
+<td>Unknown</td>
+<td>(Aura #369) (86)</td>
+</tr>
+<tr>
+<td>371</td>
+<td>Unknown</td>
+<td>(Aura #371)</td>
+</tr>
+<tr>
+<td>372</td>
+<td>Unknown</td>
+<td>(Aura #372) (63042)</td>
+</tr>
+<tr>
+<td>373</td>
+<td>Mod Speed % and Unable to Control Character</td>
+<td></td>
+</tr>
+<tr>
+<td>374</td>
+<td>Unknown</td>
+<td>(Aura #374) (185)</td>
+</tr>
+<tr>
+<td>377</td>
+<td>Allows Movement while Casting</td>
+<td></td>
+</tr>
+<tr>
+<td>379</td>
+<td>Unknown</td>
+<td>(Aura #379)</td>
+</tr>
+<tr>
+<td>382</td>
+<td>Mod Pet Damage %</td>
+<td>(1)</td>
+</tr>
+<tr>
+<td>383</td>
+<td>Unknown</td>
+<td>(Aura #383) (11)</td>
+</tr>
+<tr>
+<td>388</td>
+<td>Unknown</td>
+<td>(Aura #388) (392)</td>
+</tr>
+<tr>
+<td>393</td>
+<td>Unknown</td>
+<td>(Aura #393)</td>
+</tr>
+<tr>
+<td>394</td>
+<td>Unknown</td>
+<td>(Aura #394) (1)</td>
+</tr>
+<tr>
+<td>395</td>
+<td>Area Trigger</td>
+<td>(387)</td>
+</tr>
+<tr>
+<td>396</td>
+<td>Trigger Spell by Power Level</td>
+<td>(9)</td>
+</tr>
+<tr>
+<td>397</td>
+<td>Unknown</td>
+<td>(Aura #397) (2)</td>
+</tr>
+<tr>
+<td>398</td>
+<td>Unknown</td>
+<td>(Aura #398) (1)</td>
+</tr>
+<tr>
+<td>399</td>
+<td>Unknown</td>
+<td>(Aura #399)</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Unknown</td>
+<td>(Aura #400) (393)</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unknown</td>
+<td>(Aura #401) (213766)</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Unknown</td>
+<td>(Aura #402) (202)</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Unknown</td>
+<td>(Aura #403) (31884)</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Attack Power equals Spell Power %</td>
+<td></td>
+</tr>
+<tr>
+<td>405</td>
+<td>Mod Secondary Stat %</td>
+<td>(</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Unknown</td>
+<td>(Aura #406) (10)</td>
+</tr>
+<tr>
+<td>407</td>
+<td>Loss of Control</td>
+<td></td>
+</tr>
+<tr>
+<td>408</td>
+<td>Unknown</td>
+<td>(Aura #408)</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Unknown</td>
+<td>(Aura #409)</td>
+</tr>
+<tr>
+<td>411</td>
+<td>Modifies Charges</td>
+<td>(1365)</td>
+</tr>
+<tr>
+<td>413</td>
+<td>Unknown</td>
+<td>(Aura #413)</td>
+</tr>
+<tr>
+<td>414</td>
+<td>Unknown</td>
+<td>(Aura #414) (127)</td>
+</tr>
+<tr>
+<td>415</td>
+<td>Unknown</td>
+<td>(Aura #415)</td>
+</tr>
+<tr>
+<td>416</td>
+<td>Unknown</td>
+<td>(Aura #416)</td>
+</tr>
+<tr>
+<td>417</td>
+<td>Unknown</td>
+<td>(Aura #417) (11)</td>
+</tr>
+<tr>
+<td>418</td>
+<td>Modifies Max Power - Flat</td>
+<td>(Combo Point)</td>
+</tr>
+<tr>
+<td>419</td>
+<td>Mod Mana Pool %</td>
+<td></td>
+</tr>
+<tr>
+<td>420</td>
+<td>Unknown</td>
+<td>(Aura #420)</td>
+</tr>
+<tr>
+<td>421</td>
+<td>Unknown</td>
+<td>(Aura #421)</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Unknown</td>
+<td>(Aura #422) (127)</td>
+</tr>
+<tr>
+<td>426</td>
+<td>Unknown</td>
+<td>(Aura #426) (960)</td>
+</tr>
+<tr>
+<td>427</td>
+<td>Unknown</td>
+<td>(Aura #427)</td>
+</tr>
+<tr>
+<td>428</td>
+<td>Unknown</td>
+<td>(Aura #428) (4)</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Mod Pet Damage %</td>
+<td></td>
+</tr>
+<tr>
+<td>430</td>
+<td>Unknown</td>
+<td>(Aura #430) (35)</td>
+</tr>
+<tr>
+<td>431</td>
+<td>Unknown</td>
+<td>(Aura #431) (3)</td>
+</tr>
+<tr>
+<td>434</td>
+<td>Unknown</td>
+<td>(Aura #434)</td>
+</tr>
+<tr>
+<td>436</td>
+<td>Unknown</td>
+<td>(Aura #436)</td>
+</tr>
+<tr>
+<td>437</td>
+<td>Unknown</td>
+<td>(Aura #437)</td>
+</tr>
+<tr>
+<td>438</td>
+<td>Unknown</td>
+<td>(Aura #438)</td>
+</tr>
+<tr>
+<td>441</td>
+<td>Mod Multistrike Damage %</td>
+<td></td>
+</tr>
+<tr>
+<td>443</td>
+<td>Mod Leech %</td>
+<td></td>
+</tr>
+<tr>
+<td>447</td>
+<td>Unknown</td>
+<td>(Aura #447) (1)</td>
+</tr>
+<tr>
+<td>448</td>
+<td>Unknown</td>
+<td>(Aura #448)</td>
+</tr>
+<tr>
+<td>450</td>
+<td>Unknown</td>
+<td>(Aura #450)</td>
+</tr>
+<tr>
+<td>451</td>
+<td>Unknown</td>
+<td>(Aura #451)</td>
+</tr>
+<tr>
+<td>453</td>
+<td>Unknown</td>
+<td>(Aura #453) (1536)</td>
+</tr>
+<tr>
+<td>454</td>
+<td>Unknown</td>
+<td>(Aura #454) (1663)</td>
+</tr>
+<tr>
+<td>455</td>
+<td>Unknown</td>
+<td>(Aura #455)</td>
+</tr>
+<tr>
+<td>457</td>
+<td>Unknown</td>
+<td>(Aura #457) (1500)</td>
+</tr>
+<tr>
+<td>458</td>
+<td>Unknown</td>
+<td>(Aura #458)</td>
+</tr>
+<tr>
+<td>459</td>
+<td>Unknown</td>
+<td>(Aura #459)</td>
+</tr>
+<tr>
+<td>460</td>
+<td>Unknown</td>
+<td>(Aura #460)</td>
+</tr>
+<tr>
+<td>463</td>
+<td>Converts one stat into another %</td>
+<td></td>
+</tr>
+<tr>
+<td>465</td>
+<td>Unknown</td>
+<td>(Aura #465)</td>
+</tr>
+<tr>
+<td>466</td>
+<td>Unknown</td>
+<td>(Aura #466)</td>
+</tr>
+<tr>
+<td>467</td>
+<td>Unknown</td>
+<td>(Aura #467) (3)</td>
+</tr>
+<tr>
+<td>468</td>
+<td>Unknown</td>
+<td>(Aura #468) (1)</td>
+</tr>
+<tr>
+<td>469</td>
+<td>Unknown</td>
+<td>(Aura #469) (1)</td>
+</tr>
+<tr>
+<td>470</td>
+<td>Unknown</td>
+<td>(Aura #470) (174)</td>
+</tr>
+<tr>
+<td>471</td>
+<td>Mod Versatility %</td>
+<td></td>
+</tr>
+<tr>
+<td>472</td>
+<td>Unknown</td>
+<td>(Aura #472)</td>
+</tr>
+<tr>
+<td>473</td>
+<td>Unknown</td>
+<td>(Aura #473)</td>
+</tr>
+<tr>
+<td>474</td>
+<td>Unknown</td>
+<td>(Aura #474) (57)</td>
+</tr>
+<tr>
+<td>475</td>
+<td>Unknown</td>
+<td>(Aura #475)</td>
+</tr>
+<tr>
+<td>476</td>
+<td>Unknown</td>
+<td>(Aura #476) (823)</td>
+</tr>
+<tr>
+<td>477</td>
+<td>Unknown</td>
+<td>(Aura #477)</td>
+</tr>
+<tr>
+<td>479</td>
+<td>Unknown</td>
+<td>(Aura #479)</td>
+</tr>
+<tr>
+<td>480</td>
+<td>Unknown</td>
+<td>(Aura #480)</td>
+</tr>
+<tr>
+<td>482</td>
+<td>Unknown</td>
+<td>(Aura #482) (120)</td>
+</tr>
+<tr>
+<td>483</td>
+<td>Unknown</td>
+<td>(Aura #483)</td>
+</tr>
+<tr>
+<td>484</td>
+<td>Unknown</td>
+<td>(Aura #484) (179202)</td>
+</tr>
+<tr>
+<td>485</td>
+<td>Unknown</td>
+<td>(Aura #485)</td>
+</tr>
+<tr>
+<td>486</td>
+<td>Unknown</td>
+<td>(Aura #486)</td>
+</tr>
+<tr>
+<td>488</td>
+<td>Unknown</td>
+<td>(Aura #488)</td>
+</tr>
+<tr>
+<td>489</td>
+<td>Unknown</td>
+<td>(Aura #489) (1)</td>
+</tr>
+<tr>
+<td>490</td>
+<td>Unknown</td>
+<td>(Aura #490)</td>
+</tr>
+<tr>
+<td>491</td>
+<td>Unknown</td>
+<td>(Aura #491)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="item-qualities">Item Qualities</h3>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Type</th>
+<th>Color (RGB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>POOR</td>
+<td>rgb(157,157,157)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>NORMAL</td>
+<td>rgb(255,255,255)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>UNCOMMON</td>
+<td>rgb(30,255,0)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>RARE</td>
+<td>rgb(0,112,221)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>EPIC</td>
+<td>rgb(163,53,238)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>LEGENDARY</td>
+<td>rgb(255,128,0)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ARTIFACT</td>
+<td>rgb(230,204,128)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>HEIRLOOM</td>
+<td>rgb(0,204,255)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="socket-types">Socket Types</h3>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Meta Gem</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Red Gem</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Blue Gem</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Yellow Gem</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Purple Gem</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Sha-Touched Gem</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Cogwheel Gem</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Prismatic Gem</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Iron Artifact Relic</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Blood Artifact Relic</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Shadow Artifact Relic</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Fel Artifact Relic</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Arcane Artifact Relic</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Frost Artifact Relic</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Fire Artifact Relic</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Water Artifact Relic</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Life Artifact Relic</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Storm Artifact Relic</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Holy Artifact Relic</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="effect-triggers">Effect Triggers</h3>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>On rightclick</td>
+</tr>
+<tr>
+<td>1</td>
+<td>On equip</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Chance on hit</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Always active</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Item Class Specific Trigger (<a href="#effect-trigger-6-extra">List of known here</a>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="effect-trigger-6-extra">Effect Trigger 6 Extra</h3>
+<table>
+<thead>
+<tr>
+<th>Item Class Id</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9 (Recipe)</td>
+<td>Learn Recipe on use</td>
+</tr>
+<tr>
+<td>15 (Mount)</td>
+<td>Learn mount on use</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>On Rightclick run spell.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="endpoints">Endpoints</h1>
+<h2 id="-get-type-by-id">-&gt; Get type by Id</h2>
+<p><strong>URL</strong> <code>GET /wowdb/{type}/{id}</code></p>
+<p>Where <code>type</code> is one of <code>item</code>,<code>spell</code>,<code>mount</code>,<code>faction</code>,<code>skill</code>,<code>title</code>, or <code>achievement</code></p>
+<p><strong><strong>Required Account Permissions:</strong> WOWDB</strong></p>
+<blockquote>
+<p>Returns: data based on the request type, 400 ID not found/invalid</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><code>type</code> value</th>
+<th>return type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>item</code></td>
+<td><a href="#-item"><code>Item</code></a></td>
+</tr>
+<tr>
+<td><code>spell</code></td>
+<td><a href="#-spell"><code>Spell</code></a></td>
+</tr>
+<tr>
+<td><code>mount</code></td>
+<td><a href="#-mount"><code>Mount</code></a></td>
+</tr>
+<tr>
+<td><code>faction</code></td>
+<td><a href="#-faction"><code>Faction</code></a></td>
+</tr>
+<tr>
+<td><code>skill</code></td>
+<td><a href="#-skill"><code>Skill</code></a></td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><a href="#-title"><code>Title</code></a></td>
+</tr>
+<tr>
+<td><code>achievement</code></td>
+<td><a href="#-achievement"><code>Achievement</code></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="-search-for-type-with-field-data">-&gt; Search for type with field data</h2>
+<p><strong>URL</strong> <code>GET /wowdb/search/{type}/{field}/{value}</code></p>
+<p>Where <code>type</code> is one of <code>item</code>,<code>spell</code>,<code>mount</code>,<code>faction</code>,<code>skill</code>,<code>title</code>, or <code>achievement</code></p>
+<p>Where <code>field</code> is one of a set of options dependant on <code>type</code></p>
+<p><strong><strong>Required Account Permissions:</strong> WOWDB</strong></p>
+<blockquote>
+<p>Returns: Array of data based on type, or empty array if none found.</p>
+<p>Up to 10 results will be returned for normal accounts. UPGRADED accounts will get up to 50</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><code>type</code> value</th>
+<th>Possible search fields</th>
+<th>Return type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>item</code></td>
+<td><code>String</code> name, <code>String</code> description</td>
+<td><a href="#-item"><code>Array&lt;Item&gt;</code></a></td>
+</tr>
+<tr>
+<td><code>spell</code></td>
+<td><code>String</code> name</td>
+<td><a href="#-spell"><code>Array&lt;Spell&gt;</code></a></td>
+</tr>
+<tr>
+<td><code>mount</code></td>
+<td><code>String</code> name</td>
+<td><a href="#-mount"><code>Array&lt;Mount&gt;</code></a></td>
+</tr>
+<tr>
+<td><code>faction</code></td>
+<td><code>String</code> name</td>
+<td><a href="#-faction"><code>Array&lt;Faction&gt;</code></a></td>
+</tr>
+<tr>
+<td><code>skill</code></td>
+<td><code>String</code> name</td>
+<td><a href="#-skill"><code>Array&lt;Skill&gt;</code></a></td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>String</code> name, <code>String</code> namefemale</td>
+<td><a href="#-title"><code>Array&lt;Title&gt;</code></a></td>
+</tr>
+<tr>
+<td><code>achievement</code></td>
+<td><code>String</code> name</td>
+<td><a href="#-achievement"><code>Array&lt;Achievement&gt;</code></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="-get-icon-of-type-by-id">-&gt; Get icon of type by Id</h2>
+<p><strong>URL</strong> <code>GET /wowdb/icon/{type}/{id}</code></p>
+<p>Where <code>type</code> is one of <code>item</code>,<code>spell</code>,<code>mount</code>,<code>skill</code>, or <code>achievement</code></p>
+<p><strong><strong>Required Account Permissions:</strong> WOWDB</strong></p>
+<blockquote>
+<p>Returns: A PNG image of type's icon, or 400 ID not found/invalid</p>
+</blockquote>
+<h2 id="-get-image-of-type-by-id">-&gt; Get image of type by Id</h2>
+<p><strong>URL</strong> <code>GET /wowdb/img/{type}/{id}</code></p>
+<p>Where <code>type</code> is <code>item</code> or <code>area</code></p>
+<p><strong><strong>Required Account Permissions:</strong> WOWDB</strong></p>
+<blockquote>
+<p>Returns: A PNG mockup of the ingame tooltip</p>
+</blockquote>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../generic/miscellaneous/" class="btn btn-neutral float-right" title="Miscellaneous">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../javadoc/" class="btn btn-neutral" title="Javadoc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../javadoc/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../generic/miscellaneous/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Authentication - GoCodeIt API</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Authentication";
+    var mkdocs_page_input_path = "generic/authentication.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> GoCodeIt API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Api Docs</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Authentication</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#authentication">Authentication</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#account-flags">Account Flags</a></li>
+        
+            <li><a class="toctree-l4" href="#invalidate-token">Invalidate Token</a></li>
+        
+            <li><a class="toctree-l4" href="#information-request">Information Request</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../ratelimits/">RateLimits</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../javadoc/">Javadoc</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../wowdb/">WoWDB</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../miscellaneous/">Miscellaneous</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">GoCodeIt API</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Api Docs &raquo;</li>
+        
+      
+    
+    <li>Authentication</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="authentication">Authentication</h1>
+<p>If you do not have an account as it is, get one using one of the partners below : </p>
+<p>Accounts by default can only access certain endpoints.
+Accounts can be given <a href="#account-flags">permissions</a> to other endpoints by an administrator.</p>
+<p>Locked endpoints and upgraded accounts can be acquired through Patreon subscriptions. Check out the plans <a href="https://www.patreon.com/raidandfade">Here</a>
+For any support with your account, or any part of the api, join the <a href="https://discord.gg/Hfq2djq">Discord server</a></p>
+<table>
+<thead>
+<tr>
+<th>Partner</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Github</td>
+<td><a href="https://github.com/login/oauth/authorize?client_id=4463c0899e48730d72c7&amp;scope=user:email&amp;redirect_uri=https://api.gocode.it/auth/auth?partner=github">Link</a></td>
+</tr>
+<tr>
+<td>Google</td>
+<td><a href="https://accounts.google.com/o/oauth2/v2/auth?response_type=code&amp;client_id=822145115373-mkkumnomvdsfhgbobk9f9ih7rp1820im.apps.googleusercontent.com&amp;scope=email&amp;redirect_uri=https://api.gocode.it/auth/auth?partner=google">Link</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="account-flags">Account Flags</h2>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADMIN</td>
+<td>Access to all endpoints (including some undocumented ones)</td>
+</tr>
+<tr>
+<td>UPGRADED</td>
+<td>Higher limits and some special endpoints</td>
+</tr>
+<tr>
+<td>EXECUTE</td>
+<td>Access to the <a href="/generic/miscellaneous/#execute-code">execute</a> endpoint</td>
+</tr>
+<tr>
+<td>IP</td>
+<td>Access to the <a href="/generic/miscellaneous/#ip-information">IP</a> endpoint</td>
+</tr>
+<tr>
+<td>WOWDB</td>
+<td>Access to the <a href="/wowdb/">WoWDB</a> endpoints</td>
+</tr>
+</tbody>
+</table>
+<h2 id="invalidate-token">Invalidate Token</h2>
+<p><strong>URL</strong> <code>GET /auth/invalidate</code></p>
+<blockquote>
+<p>Invalidates your current token and gives you a new one.</p>
+</blockquote>
+<h2 id="information-request">Information Request</h2>
+<p><strong>URL</strong> <code>GET /auth/info</code></p>
+<blockquote>
+<p>Fetch information related to your token. such as the email, flags, and id of the account.</p>
+</blockquote>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ratelimits/" class="btn btn-neutral float-right" title="RateLimits">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ratelimits/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
