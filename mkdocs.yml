@@ -1,0 +1,11 @@
+site_name: GoCodeIt API 
+pages: 
+    - Home: index.md 
+    - Api Docs: 
+        - Authentication: generic/authentication.md 
+        - RateLimits: generic/ratelimits.md
+        - Javadoc: javadoc.md 
+        - WoWDB: wowdb.md 
+        #- Pls Api: pls.md 
+        - Miscellaneous: generic/miscellaneous.md 
+theme: readthedocs 
