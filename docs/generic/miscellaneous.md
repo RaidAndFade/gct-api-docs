@@ -1,6 +1,6 @@
 Admittedly most of these are quite useless and were made for fun.
 
-###Hash to MD5
+### Hash to MD5
 __URL__
 `GET /md5/hash/{$0}/...`
 
@@ -14,7 +14,7 @@ Input : `/md5/hash/1/2/3`
 
 Output : `{"1":"c4ca4238a0b923820dcc509a6f75849b","2":"c81e728d9d4c2f636f067f89cc14862c","3":"eccbc87e4b5ce2fe28308fd9f2a7baf3"}`
 
-###Look for MD5
+### Look for MD5
 __URL__
 `GET /md5/str/{$0}/...`
 
@@ -30,7 +30,7 @@ Input : `/md5/str/c4ca4238a0b923820dcc509a6f75849b/c4ca4238a0b923820dcc509a6f758
 
 Output : `{"c4ca4238a0b923820dcc509a6f75849b":"1","c4ca4238a0b923820dcc509a6f75849d":-1}`
 
-##Conversion API
+## Conversion API
 __URL__ 
 `GET /convert/{$0}/...`
 
@@ -46,7 +46,7 @@ Input : `/convert/hi`
 
 Output : `{"hi":{"Letters":{"h":{"binary":"1101000","hexadecimal":"68","octadecimal":"150","decimal":"104","ascii":"h"},"i":{"binary":"1101001","hexadecimal":"69","octadecimal":"151","decimal":"105","ascii":"i"}},"lettercount":{"h":1,"i":1},"binary":"1101000 1101001 ","hexadecimal":"68 69 ","octadecimal":"150 151 ","decimal":"104 105 ","ascii":"h i "}}`
 
-##Execute code
+## Execute code
 __URL__ `POST /exec/{lang?}`
 
 __**Required Account Permissions:** EXECUTE__
@@ -70,7 +70,7 @@ Output format:
  `String` res  | The text result of the code snippet.
  `Int` comp | Duration of time taken to run code in milliseconds.
 
-##Ip Information
+## Ip Information
 __URL__ `GET /ip/{ip}`
 
 __**Required Account Permissions:** IP__
@@ -111,7 +111,7 @@ Type 2 (Range is not special):
  `String` city | Approximate city of IP
  `String` time_zone | Time zone of IP
 
-##Lookandsay
+## Lookandsay
 __URL__ `GET /lookandsay/{n}`
 
 >Returns a list of all `lookandsay` elements up to the `n`th element... 
@@ -129,7 +129,7 @@ Input : `/lookandsay/4`
 Output : `["1","11","21","1211"]`
 
 
-##Fibonacci
+## Fibonacci
 __URL__ `GET /fibonacci/{n}`
 
 >Returns a list of all `fibonacci` elements up to the `n`th element...
